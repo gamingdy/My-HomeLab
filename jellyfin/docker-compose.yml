@@ -1,0 +1,21 @@
+version: "2.1"
+services:
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - JELLYFIN_PublishedServerUrl=
+    volumes:
+      - ./config/:/config
+      - ./data/:/data/movies
+    restart: always
+    networks:
+      - proxy-net
+
+networks:
+  proxy-net:
+    name: proxy-network
+    external: true
