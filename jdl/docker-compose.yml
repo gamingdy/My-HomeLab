@@ -1,0 +1,30 @@
+version: "3"
+services:
+    jdownloader-vpn:
+        image: jlesage/jdownloader-2
+        container_name: jdownloader-vpn
+        network_mode: container:wireguard-box  # container name of the vpn
+        environment:
+            - MYJDOWNLOADER_DEVICE_NAME=
+            - MYJDOWNLOADER_EMAIL=
+            - MYJDOWNLOADER_PASSWORD=
+            - TZ=Europe/Paris
+            - JDOWNLOADER_HEADLESS=1 # to disable the GUI
+        volumes:
+            - ./config-vpn:/config:rw
+            - ./data:/output:rw
+        restart: always
+
+    jdownloader:
+        image: jlesage/jdownloader-2
+        container_name: jdownloader
+        environment:
+            - MYJDOWNLOADER_DEVICE_NAME=
+            - MYJDOWNLOADER_EMAIL=
+            - MYJDOWNLOADER_PASSWORD=
+            - TZ=Europe/Paris
+            - JDOWNLOADER_HEADLESS=1
+        volumes:
+            - ./config:/config:rw
+            - ./data:/output:rw
+        restart: always
