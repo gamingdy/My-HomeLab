@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+    kavita:
+        image: jvmilazz0/kavita:latest
+        container_name: kavita
+        volumes:
+            - ./books:/books
+            - ./config:/kavita/config
+        restart: unless-stopped
+        networks:
+            - proxy-net
+
+networks:
+    proxy-net:
+        name: proxy-network
+        external: true
