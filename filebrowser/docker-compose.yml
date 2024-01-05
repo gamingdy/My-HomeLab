@@ -1,0 +1,22 @@
+version: "2.1"
+services:
+    filebrowser:
+        image: filebrowser/filebrowser
+        container_name: filebrowser
+        networks:
+            - proxy-net
+        environment:
+            - PUID=1001
+            - PGID=1001
+        volumes:
+            # all monted volumes must be mount to /srv
+            - ./data/user:/srv/user
+            - ./db:/database
+            - ./config:/config
+
+        restart: always
+
+networks:
+    proxy-net:
+        name: proxy-network
+        external: true
