@@ -1,0 +1,29 @@
+version: "3"
+services:
+    db_lynx:
+        image: mongo
+        networks:
+            - proxy-net
+        restart: always
+        env_file:
+            - db.env
+        volumes:
+            - ./db:/data/db
+
+    lynx:
+        image: jackbailey/lynx:1
+        container_name: lynx
+        networks:
+            - proxy-net
+        restart: always
+        depends_on:
+            - db_lynx
+        volumes:
+            - ./backups:/app/backups
+        env_file:
+            - .env
+
+networks:
+    proxy-net:
+        name: proxy-network
+        external: true
