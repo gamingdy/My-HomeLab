@@ -1,0 +1,202 @@
+appConfig:
+    layout: auto
+    iconSize: large
+    theme: dracula
+    language: fr
+    statusCheck: true
+    statusCheckInterval: 20
+    startingView: default
+    defaultOpeningMethod: newtab
+    faviconApi: allesedv
+    routingMode: history
+    enableMultiTasking: false
+    widgetsAlwaysUseProxy: false
+    webSearch:
+        disableWebSearch: false
+        searchEngine: google
+        openingMethod: newtab
+        searchBangs: {}
+    enableFontAwesome: true
+    enableMaterialDesignIcons: false
+    hideComponents:
+        hideHeading: false
+        hideNav: false
+        hideSearch: false
+        hideSettings: true
+        hideFooter: false
+    auth:
+        enableGuestAccess: true
+        users:
+            - user: gamingdy
+              hash: 9ec83f470039def4b56a630b8cea95207c867dd13c5d2b867bca28a6420db502
+              type: admin
+        enableKeycloak: false
+    showSplashScreen: false
+    preventWriteToDisk: false
+    preventLocalSave: false
+    disableConfiguration: false
+    disableConfigurationForNonAdmin: true
+    allowConfigEdit: true
+    enableServiceWorker: false
+    disableContextMenu: false
+    disableUpdateChecks: false
+    disableSmartSort: false
+    enableErrorReporting: false
+pageInfo:
+    title: Gamingdy's Home
+    description: ""
+    navLinks: []
+    footerText: ""
+    logo: https://f3.allesedv.com/64/gamingdy.fr
+sections:
+    - name: Monitoring
+      displayData:
+          sortBy: alphabetical
+          rows: 1
+          cols: 1
+          collapsed: false
+          hideForGuests: false
+      items:
+          - title: Grafana
+            description: My server monitor
+            icon: https://f5.allesedv.com/64/grafana.com
+            url: https://monitor.gamingdy.fr
+            target: newtab
+            id: 0_1062_grafana
+          - title: Spotify
+            description: My spotify stats
+            icon: https://icon.horse/icon/spotify.com
+            url: https://spoti.gamingdy.fr
+            target: newtab
+            id: 0_529_spotify
+
+      icon: >-
+          https://is5-ssl.mzstatic.com/image/thumb/Purple115/v4/fb/5f/ce/fb5fce75-b094-175f-e17c-31f9500babc2/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.jpg
+
+    - name: Social
+      icon: >-
+          https://b.thumbs.redditmedia.com/3nPwROTGHg8kzHLGzinIjox3Qv2VtbYOEwbJQufnp_o.png
+      displayData:
+          sortBy: alphabetical
+          rows: 1
+          cols: 1
+          collapsed: false
+          hideForGuests: false
+      items:
+          - title: Github
+            icon: >-
+                https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png
+            url: https://github.com/gamingdy
+            target: newtab
+            id: 0_746_github
+          - title: Me
+            icon: https://f3.allesedv.com/64/gamingdy.fr
+            url: https://gamingdy.fr/
+            target: newtab
+            id: 1_746_me
+
+    - name: Tools
+      displayData:
+          sortBy: alphabetical
+          rows: 1
+          cols: 2
+          collapsed: false
+          hideForGuests: true
+      items:
+          - title: Torrent
+            description: Torrent downloader
+            icon: https://f6.allesedv.com/64/qbittorrent.org
+            url: http://bit.gamingdy.fr
+
+          - title: File
+            description: Self hosted file browser
+            icon: https://f4.allesedv.com/64/filebrowser.org
+            url: https://file.gamingdy.fr
+
+          - title: Matomo
+            description: Personal analytics
+            icon: https://f8.allesedv.com/64/matomo.org
+            url: https://matomo.gamingdy.fr
+
+          - title: Portainer
+            description: Container manager
+            icon: https://icon.horse/icon/portainer.io
+            url: https://portainer.gamingdy.fr
+
+          - title: NPM
+            description: Reverse proxy
+            icon: https://icon.horse/icon/nginxproxymanager.com
+            url: https://proxy.gamingdy.fr
+
+          - title: Book reader
+            description: My books reader
+            icon: https://icon.horse/icon/www.kavitareader.com
+            url: https://book.gamingdy.fr
+
+          - title: Change detection
+            description: Detect change on website
+            icon: https://icon.horse/icon/changedetection.io
+            url: http://change.gamingdy.fr/
+
+          - title: Lynx
+            description: Url shortener
+            icon: https://github.com/Lynx-Shortener/Lynx/raw/main/frontend/public/logo.png
+            url: https://s.gamingdy.fr/
+
+          - title: VPN
+            description: My VPN
+            icon: https://icon.horse/icon/www.firezone.dev
+            url: https://vpn.gamingdy.fr/
+
+    - name: Media Server
+      displayData:
+          sortBy: alphabetical
+          rows: 1
+          cols: 2
+          collapsed: false
+          hideForGuests: true
+      items:
+          - title: Jellyseer
+            description: Request manager for jellyfin
+            icon: https://icon.horse/icon/mediar.gamingdy.fr
+            url: https://mediar.gamingdy.fr
+
+          - title: Jellyfin
+            description: Personal media server
+            icon: https://f7.allesedv.com/64/jellyfin.org
+            url: https://media.gamingdy.fr
+
+    - name: Some shit
+      widgets:
+          - type: clock
+            label: Clock
+            options:
+                timeZone: Europe/Paris
+                format: fr-FR
+            id: 0_876_clock
+          - type: joke
+            label: Joke
+            options:
+                safeMode: true
+            id: 1_876_joke
+          - type: xkcd-comic
+            label: Random comic
+            options:
+                comic: random
+            id: 2_876_xkcdcomic
+      items: []
+    - name: Github Stats
+      displayData:
+          sortBy: default
+          rows: 1
+          cols: 1
+          collapsed: false
+          hideForGuests: false
+      widgets:
+          - type: github-profile-stats
+            options:
+                username: gamingdy
+            id: 0_1170_githubprofilestats
+      items: []
+      icon: >-
+          https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png
