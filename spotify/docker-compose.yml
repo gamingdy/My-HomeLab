@@ -1,0 +1,38 @@
+services:
+    server:
+        image: yooooomi/your_spotify_server
+        container_name: spotify_server
+        restart: always
+        platform: linux/amd64
+        links:
+            - mongo
+        depends_on:
+            - mongo
+        networks:
+            - proxy-net
+        env_file:
+            - ./server.env
+
+    mongo:
+        container_name: mongo
+        image: mongo:4.4.8
+        restart: always
+        networks:
+            - proxy-net
+        volumes:
+            - ./mongo/db:/data/db
+
+    web:
+        image: yooooomi/your_spotify_client
+        container_name: spotify_client
+        restart: always
+        platform: linux/amd64
+        networks:
+            - proxy-net
+        env_file:
+            - ./client.env
+
+networks:
+    proxy-net:
+        name: proxy-network
+        external: true
