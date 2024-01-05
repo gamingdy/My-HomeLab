@@ -1,0 +1,24 @@
+version: "2.1"
+services:
+    resilio-sync:
+        image: lscr.io/linuxserver/resilio-sync:latest
+        container_name: resilio-sync
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=Europe/Paris
+        volumes:
+            # sync folder must be mount to /sync
+            - ./data/gamingdy:/sync/remote_dev/gamingdy
+            - ./config:/config
+            - ./downloads:/downloads
+        ports:
+            - 55555:55555
+        networks:
+            - proxy-net
+        restart: always
+
+networks:
+    proxy-net:
+        name: proxy-network
+        external: true
