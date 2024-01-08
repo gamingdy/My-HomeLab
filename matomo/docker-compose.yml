@@ -14,7 +14,7 @@ services:
         env_file:
             - ./db.env
         networks:
-            - proxy-net
+            - matomo-network
 
     app:
         image: matomo
@@ -28,12 +28,18 @@ services:
             - ./.env
         networks:
             - proxy-net
+            - matomo-network
 
 volumes:
     db:
     matomo:
 
 networks:
+    matomo-network:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.16.0.10/29
     proxy-net:
         name: proxy-network
         external: true
