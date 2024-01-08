@@ -10,6 +10,7 @@ services:
             - mongo
         networks:
             - proxy-net
+            - spotify-network
         env_file:
             - ./server.env
 
@@ -18,7 +19,7 @@ services:
         image: mongo:4.4.8
         restart: always
         networks:
-            - proxy-net
+            - spotify-network
         volumes:
             - ./mongo/db:/data/db
 
@@ -33,6 +34,11 @@ services:
             - ./client.env
 
 networks:
+    spotify-network:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.16.0.30/29
     proxy-net:
         name: proxy-network
         external: true
