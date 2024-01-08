@@ -3,7 +3,7 @@ services:
     db_lynx:
         image: mongo
         networks:
-            - proxy-net
+            - lynx-network
         restart: always
         env_file:
             - db.env
@@ -14,6 +14,7 @@ services:
         image: jackbailey/lynx:1
         container_name: lynx
         networks:
+            - lynx-network
             - proxy-net
         restart: always
         depends_on:
@@ -24,6 +25,11 @@ services:
             - .env
 
 networks:
+    lynx-network:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.16.0.0/29
     proxy-net:
         name: proxy-network
         external: true
