@@ -10,6 +10,9 @@
 # before running this file, follow this guide
 # https://www.firezone.dev/docs/deploy/docker#option-2-manual-install
 
+# Web UI: http://firezone:13000
+
+
 x-deploy: &default-deploy
     restart_policy:
         condition: unless-stopped

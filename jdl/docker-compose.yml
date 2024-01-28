@@ -3,7 +3,7 @@ services:
     jdownloader-vpn:
         image: jlesage/jdownloader-2
         container_name: jdownloader-vpn
-        network_mode: container:wireguard-box  # container name of the vpn
+        network_mode: container:wireguard-box # container name of the vpn
         environment:
             - MYJDOWNLOADER_DEVICE_NAME=
             - MYJDOWNLOADER_EMAIL=

@@ -1,3 +1,7 @@
+# Filebrowser
+# Web UI: http://filebrowser:80
+# Default username/password is admin/admin
+
 version: "2.1"
 services:
     filebrowser:

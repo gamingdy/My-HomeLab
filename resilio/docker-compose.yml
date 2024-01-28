@@ -1,3 +1,6 @@
+# Resilio Sync
+# Web UI: http://resilio-sync:8888
+
 version: "2.1"
 services:
     resilio-sync:

@@ -1,3 +1,6 @@
+# Matomo
+# Web UI: http://matomo:80
+
 version: "3"
 
 services:

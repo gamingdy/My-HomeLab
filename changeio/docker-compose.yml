@@ -1,3 +1,6 @@
+# Changedetection.io
+# Web UI: http://changedetection.io:5000
+
 version: "3.9"
 services:
     changedetection.io:
