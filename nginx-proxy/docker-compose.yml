@@ -1,6 +1,6 @@
 # Nginx Proxy Manager
 # Web UI: http://nginx-proxy:81
-# default user: admin@exemple.com
+# default user: admin@example.com
 # default password: changeme
 
 version: "3"
