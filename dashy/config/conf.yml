@@ -122,7 +122,7 @@ sections:
             icon: https://f8.allesedv.com/64/matomo.org
             url: https://matomo.gamingdy.fr
 
-          - title: Portainer
+          - title: Portainer (⚠️VPN)
             description: Container manager
             icon: https://icon.horse/icon/portainer.io
             url: https://portainer.gamingdy.fr

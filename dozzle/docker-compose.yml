@@ -1,0 +1,19 @@
+# Dozzle
+# Web UI: http://dozzle:8080
+
+version: "3"
+services:
+    dozzle:
+        command: "--auth-provider simple"
+        container_name: dozzle
+        image: amir20/dozzle:latest
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./data:/data
+        networks:
+            - proxy-net
+
+networks:
+    proxy-net:
+        name: proxy-network
+        external: true
