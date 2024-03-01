@@ -1,0 +1,21 @@
+pageInfo:
+    title: Gamingdy's Trinity
+    description: ""
+    navLinks: []
+    footerText: ""
+    logo: https://f3.allesedv.com/64/gamingdy.fr
+sections:
+    - name: Monitoring
+      displayData:
+          sortBy: alphabetical
+          rows: 1
+          cols: 1
+          collapsed: false
+          hideForGuests: false
+      items:
+          - title: Grafana
+            description: My server monitor
+            icon: https://f5.allesedv.com/64/grafana.com
+            url: https://monitor.gamingdy.fr
+            target: newtab
+            id: 0_1062_grafana

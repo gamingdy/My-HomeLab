@@ -1,6 +1,6 @@
 appConfig:
-    layout: auto
-    iconSize: large
+    layout: horizontal
+    iconSize: medium
     theme: dracula
     language: fr
     statusCheck: true
@@ -166,6 +166,12 @@ sections:
             icon: https://f7.allesedv.com/64/jellyfin.org
             url: https://media.gamingdy.fr
 
+          - title: Jellystat
+            description: My jellyfin stats
+            icon: https://icon.horse/icon/medias.gamingdy.fr
+            url: https://medias.gamingdy.fr
+            id: 2_1143_jellystat
+
     - name: Some shit
       widgets:
           - type: clock
@@ -200,3 +206,10 @@ sections:
       items: []
       icon: >-
           https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png
+pages:
+    - name: test
+      path: /app/public/conf.yml
+    - name: fgsdf
+      path: /app/public/conf.yml
+      displayData:
+          hideForGuests: true

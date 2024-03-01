@@ -1,0 +1,20 @@
+pageInfo:
+    title: Gamingdy's Grapple
+    description: ""
+    navLinks: []
+    footerText: ""
+    logo: https://f3.allesedv.com/64/gamingdy.fr
+sections:
+    - name: Monitoring
+      displayData:
+          sortBy: alphabetical
+          rows: 1
+          cols: 1
+          collapsed: false
+          hideForGuests: false
+      items:
+          - title: Dozzle grapple
+            description: Docker logs viewer
+            icon: https://icon.horse/icon/dozzle.gamingdy.fr
+            url: https://dozzle.grapple.gamingdy.fr/
+            id: 15_529_dozzlegrapple
