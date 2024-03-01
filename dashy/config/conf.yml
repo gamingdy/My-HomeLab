@@ -1,5 +1,6 @@
 appConfig:
-    layout: horizontal
+    backgroundImg: https://images.unsplash.com/photo-1511884642898-4c92249e20b6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+    layout: auto
     iconSize: medium
     theme: dracula
     language: fr
@@ -35,7 +36,7 @@ appConfig:
     preventWriteToDisk: false
     preventLocalSave: false
     disableConfiguration: false
-    disableConfigurationForNonAdmin: true
+    disableConfigurationForNonAdmin: false
     allowConfigEdit: true
     enableServiceWorker: false
     disableContextMenu: false
@@ -95,7 +96,7 @@ sections:
             target: newtab
             id: 1_746_me
 
-    - name: Tools
+    - name: Secret
       displayData:
           sortBy: alphabetical
           rows: 1
@@ -108,11 +109,14 @@ sections:
             icon: https://f6.allesedv.com/64/qbittorrent.org
             url: http://bit.gamingdy.fr
 
-          - title: File
-            description: Self hosted file browser
-            icon: https://f4.allesedv.com/64/filebrowser.org
-            url: https://file.gamingdy.fr
-
+    - name: Tools
+      displayData:
+          sortBy: alphabetical
+          rows: 1
+          cols: 2
+          collapsed: false
+          hideForGuests: false
+      items:
           - title: Matomo
             description: Personal analytics
             icon: https://f8.allesedv.com/64/matomo.org
@@ -122,11 +126,6 @@ sections:
             description: Container manager
             icon: https://icon.horse/icon/portainer.io
             url: https://portainer.gamingdy.fr
-
-          - title: NPM
-            description: Reverse proxy
-            icon: https://icon.horse/icon/nginxproxymanager.com
-            url: https://proxy.gamingdy.fr
 
           - title: Book reader
             description: My books reader
@@ -143,10 +142,15 @@ sections:
             icon: https://github.com/Lynx-Shortener/Lynx/raw/main/frontend/public/logo.png
             url: https://s.gamingdy.fr/
 
-          - title: VPN
-            description: My VPN
-            icon: https://icon.horse/icon/www.firezone.dev
-            url: https://vpn.gamingdy.fr/
+          - title: Game server
+            description: My selfhosted game server
+            icon: https://icon.horse/icon/games.gamingdy.fr
+            url: https://games.gamingdy.fr
+
+          - title: Resilio Sync
+            description: My resilio
+            icon: https://icon.horse/icon/www.resilio.com
+            url: https://sync.gamingdy.fr/
 
     - name: Media Server
       displayData:
@@ -191,25 +195,9 @@ sections:
                 comic: random
             id: 2_876_xkcdcomic
       items: []
-    - name: Github Stats
-      displayData:
-          sortBy: default
-          rows: 1
-          cols: 1
-          collapsed: false
-          hideForGuests: false
-      widgets:
-          - type: github-profile-stats
-            options:
-                username: gamingdy
-            id: 0_1170_githubprofilestats
-      items: []
-      icon: >-
-          https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png
+
 pages:
-    - name: test
-      path: /app/public/conf.yml
-    - name: fgsdf
-      path: /app/public/conf.yml
-      displayData:
-          hideForGuests: true
+    - name: Grapple
+      path: "https://raw.githubusercontent.com/gamingdy/My-HomeLab/main/dashy/config/grapple.yml"
+    - name: Trinity
+      path: "https://raw.githubusercontent.com/gamingdy/My-HomeLab/main/dashy/config/trinity.yml"

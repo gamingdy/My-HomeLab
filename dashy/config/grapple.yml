@@ -5,7 +5,7 @@ pageInfo:
     footerText: ""
     logo: https://f3.allesedv.com/64/gamingdy.fr
 sections:
-    - name: Monitoring
+    - name: Tools
       displayData:
           sortBy: alphabetical
           rows: 1
@@ -13,8 +13,19 @@ sections:
           collapsed: false
           hideForGuests: false
       items:
-          - title: Dozzle grapple
+          - title: Dozzle
             description: Docker logs viewer
             icon: https://icon.horse/icon/dozzle.gamingdy.fr
             url: https://dozzle.grapple.gamingdy.fr/
-            id: 15_529_dozzlegrapple
+        
+          - title: FileBrowser
+            description: Self hosted file browser
+            icon: https://f4.allesedv.com/64/filebrowser.org
+            url: https://file.grapple.gamingdy.fr
+          
+          - title: NPM (⚠️VPN)
+            description: Reverse proxy
+            icon: https://icon.horse/icon/nginxproxymanager.com
+            url: https://proxy.grapple.gamingdy.fr
+          
+          

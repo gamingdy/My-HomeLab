@@ -13,9 +13,22 @@ sections:
           collapsed: false
           hideForGuests: false
       items:
-          - title: Grafana
-            description: My server monitor
-            icon: https://f5.allesedv.com/64/grafana.com
-            url: https://monitor.gamingdy.fr
-            target: newtab
-            id: 0_1062_grafana
+          - title: Dozzle
+            description: Docker logs viewer
+            icon: https://icon.horse/icon/dozzle.gamingdy.fr
+            url: https://dozzle.gamingdy.fr/
+
+          - title: FileBrowser
+            description: Self hosted file browser
+            icon: https://f4.allesedv.com/64/filebrowser.org
+            url: https://file.gamingdy.fr
+          
+          - title: NPM (⚠️VPN)
+            description: Reverse proxy
+            icon: https://icon.horse/icon/nginxproxymanager.com
+            url: https://proxy.gamingdy.fr
+          
+          - title: VPN
+            description: My VPN
+            icon: https://icon.horse/icon/www.firezone.dev
+            url: https://vpn.gamingdy.fr/
