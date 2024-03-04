@@ -117,10 +117,10 @@ sections:
           collapsed: false
           hideForGuests: false
       items:
-          - title: Matomo
+          - title: Umami
             description: Personal analytics
-            icon: https://f8.allesedv.com/64/matomo.org
-            url: https://matomo.gamingdy.fr
+            icon: https://icon.horse/icon/umami.is
+            url: https://track.gamingdy.fr/login
 
           - title: Portainer (⚠️VPN)
             description: Container manager
