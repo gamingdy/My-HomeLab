@@ -1,0 +1,50 @@
+# Pterodactyl Panel
+# Api available at: http://pterodactyl-wings:443
+
+version: "3.8"
+
+services:
+    wings:
+        container_name: pterodactyl-wings
+        image: ghcr.io/pterodactyl/wings:latest
+        restart: always
+        networks:
+            - wings0
+            - proxy-net
+        ports:
+            #- "8080:8080"
+            - "2022:2022"
+        tty: true
+        environment:
+            TZ: "Europe/Paris"
+            WINGS_UID: 0
+            WINGS_GID: 0
+            WINGS_USERNAME: pterodactyl
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+            - "/var/lib/docker/containers/:/var/lib/docker/containers/"
+            - "/path/to/pterodactyl/etc/:/etc/pterodactyl/"
+            - "/path/to/pterodactyl/lib/:/var/lib/pterodactyl/"
+            - "/path/to/pterodactyl/log/:/var/log/pterodactyl/"
+            - "/path/to/pterodactyl/tmp/:/tmp/pterodactyl/"
+            - "/etc/ssl/certs:/etc/ssl/certs:ro"
+            - /path/to/pterodactyl/:/same/path/to/pterodactyl/
+            - /tmp/pterodactyl/:/tmp/pterodactyl/
+            # you may need /srv/daemon-data if you are upgrading from an old daemon
+            #- "/srv/daemon-data/:/srv/daemon-data/"
+            # Required for ssl if you use let's encrypt. uncomment to use.
+            #- "/etc/letsencrypt/:/etc/letsencrypt/"
+
+networks:
+    wings0:
+        name: wings0
+        driver: bridge
+        ipam:
+            config:
+                - subnet: "172.21.42.0/24"
+        driver_opts:
+            com.docker.network.bridge.name: wings0
+
+    proxy-net:
+        name: proxy-network
+        external: true

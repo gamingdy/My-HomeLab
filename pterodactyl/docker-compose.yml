@@ -1,0 +1,90 @@
+# Pterodactyl Panel
+# Web UI: http://pterodactyl-panel:80
+
+# A complete guide can be found here: https://technotim.live/posts/pterodactyl-game-server/
+
+version: "3.8"
+x-common:
+    database: &db-environment
+        # Do not remove the "&db-password" from the end of the line below, it is important
+        # for Panel functionality.
+        MYSQL_PASSWORD: &db-password ""
+        MYSQL_ROOT_PASSWORD: ""
+    panel: &panel-environment # This URL should be the URL that your reverse proxy routes to the panel server
+        APP_URL: "https://panel.example.com"
+        # A list of valid timezones can be found here: http://php.net/manual/en/timezones.php
+        APP_TIMEZONE: "Europe/Paris"
+        APP_SERVICE_AUTHOR: "admin@example.com"
+        TRUSTED_PROXIES: "*" # Set this to your proxy IP
+        # Uncomment the line below and set to a non-empty value if you want to use Let's Encrypt
+        # to generate an SSL certificate for the Panel.
+        # LE_EMAIL: ""
+
+#
+# ------------------------------------------------------------------------------------------
+# DANGER ZONE BELOW
+#
+# The remainder of this file likely does not need to be changed. Please only make modifications
+# below if you understand what you are doing.
+#
+services:
+    database:
+        image: mariadb:10.5
+        restart: always
+        command: --default-authentication-plugin=mysql_native_password
+        volumes:
+            - "./database:/var/lib/mysql"
+        environment:
+            <<: *db-environment
+            MYSQL_DATABASE: "panel"
+            MYSQL_USER: "pterodactyl"
+        networks:
+            - ptero-network
+
+    cache:
+        image: redis:alpine
+        restart: always
+        networks:
+            - ptero-network
+
+    panel:
+        image: ghcr.io/pterodactyl/panel:latest
+        restart: always
+        container_name: pterodactyl-panel
+        #ports:
+        #    - "80:80"
+        #    - "443:443"
+        links:
+            - database
+            - cache
+        volumes:
+            - "./var/:/app/var/"
+            - "./nginx/:/etc/nginx/http.d/"
+            - "./certs/:/etc/letsencrypt/"
+            - "./logs/:/app/storage/logs"
+        environment:
+            <<: [*panel-environment]
+            DB_PASSWORD: *db-password
+            APP_ENV: "production"
+            APP_ENVIRONMENT_ONLY: "false"
+            CACHE_DRIVER: "redis"
+            SESSION_DRIVER: "redis"
+            QUEUE_DRIVER: "redis"
+            REDIS_HOST: "cache"
+            DB_HOST: "database"
+            DB_PORT: "3306"
+
+        networks:
+            - ptero-network
+            - proxy-net
+
+networks:
+    ptero-network:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 172.16.0.8/29
+
+    proxy-net:
+        name: proxy-network
+        external: true
