@@ -1,8 +1,6 @@
 # Umami
 # Web UI: http://umami:3000
 
-version: "3"
-
 services:
     umami:
         image: ghcr.io/umami-software/umami:postgresql-latest

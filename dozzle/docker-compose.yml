@@ -1,12 +1,12 @@
 # Dozzle
 # Web UI: http://dozzle:8080
 
-version: "3"
 services:
     dozzle:
         command: "--auth-provider simple"
         container_name: dozzle
         image: amir20/dozzle:latest
+        restart: always
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
             - ./data:/data

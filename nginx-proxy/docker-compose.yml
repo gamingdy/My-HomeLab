@@ -3,7 +3,6 @@
 # default user: admin@example.com
 # default password: changeme
 
-version: "3"
 services:
     app:
         image: "jc21/nginx-proxy-manager:latest"

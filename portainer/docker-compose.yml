@@ -1,7 +1,6 @@
 # Portainer
 # Web UI: https://portainer:9443
 
-version: "3.9"
 services:
     portainer-ce:
         image: "portainer/portainer-ce:latest"

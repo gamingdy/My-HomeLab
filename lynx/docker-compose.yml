@@ -1,7 +1,6 @@
 # Lynx
 # Web UI: http://lynx:3000
 
-version: "3"
 services:
     db_lynx:
         image: mongo

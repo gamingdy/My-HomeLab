@@ -3,7 +3,6 @@
 
 # A complete guide can be found here: https://technotim.live/posts/pterodactyl-game-server/
 
-version: "3.8"
 x-common:
     database: &db-environment
         # Do not remove the "&db-password" from the end of the line below, it is important

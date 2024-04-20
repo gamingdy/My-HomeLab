@@ -1,7 +1,6 @@
 # Jellyfin
 # Web UI: http://jellyfin:8096
 
-version: "2.1"
 services:
     jellyfin:
         image: lscr.io/linuxserver/jellyfin:latest

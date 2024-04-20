@@ -1,8 +1,8 @@
 # Filebrowser
 # Web UI: http://filebrowser:80
 # Default username/password is admin/admin
+# Create filebrowser.db before starting the container
 
-version: "2.1"
 services:
     filebrowser:
         image: filebrowser/filebrowser
@@ -15,9 +15,8 @@ services:
         volumes:
             # all monted volumes must be mount to /srv
             - ./data/user:/srv/user
-            - ./db:/database
+            - ./db/filebrowser.db:/database.db
             - ./config:/config
-
         restart: always
 
 networks:

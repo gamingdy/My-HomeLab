@@ -1,7 +1,6 @@
 # QBittorrent
 # Web UI: http://qbittorent:8085
 
-version: "2.1"
 services:
     qbittorrent:
         image: lscr.io/linuxserver/qbittorrent:latest

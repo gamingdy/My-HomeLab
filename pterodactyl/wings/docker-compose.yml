@@ -1,7 +1,6 @@
 # Pterodactyl Panel
 # Api available at: http://pterodactyl-wings:443
 
-version: "3.8"
 
 services:
     wings:
