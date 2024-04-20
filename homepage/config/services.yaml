@@ -1,0 +1,154 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/services
+
+- Monitoring:
+      - Grafana:
+            icon: /icons/grafana.png
+            href: https://monitor.gamingdy.fr
+            description: My server monitor
+            siteMonitor: https://monitor.gamingdy.fr
+
+      - Spotify:
+            icon: /icons/spotify.png
+            href: https://spoti.gamingdy.fr
+            description: My spotify stats
+            siteMonitor: https://spoti.gamingdy.fr
+
+      - Uptime Robot:
+            icon: /icons/uptimerobot.png
+            widget:
+                type: uptimerobot
+                url: https://api.uptimerobot.com
+                key: "{{HOMEPAGE_VAR_UPTIMEROBOT}}"
+
+- Tools:
+      - Umami:
+            icon: /icons/umami.png
+            href: https://track.gamingdy.fr/
+            description: Personal analytics
+            siteMonitor: https://track.gamingdy.fr/
+
+      - Portainer:
+            icon: /icons/portainer.png
+            href: https://portainer.gamingdy.fr
+            description: Container manager
+            siteMonitor: https://portainer.gamingdy.fr
+
+      - Book reader:
+            icon: /icons/kavita.png
+            href: https://book.gamingdy.fr
+            description: My books reader
+            siteMonitor: https://book.gamingdy.fr
+            widget:
+                type: kavita
+                url: https://book.gamingdy.fr
+                username: "{{HOMEPAGE_VAR_KAVITA_USER}}"
+                password: "{{HOMEPAGE_VAR_KAVITA_PASS}}"
+
+      - Change detection:
+            icon: /icons/changedetection.png
+            href: https://change.gamingdy.fr/
+            description: Detect change on website
+            siteMonitor: https://change.gamingdy.fr/
+
+      - Lynx:
+            icon: /icons/lynx.png
+            href: https://s.gamingdy.fr/
+            description: Url shortener
+            siteMonitor: https://s.gamingdy.fr/
+
+      - Game server:
+            icon: /icons/pterodactyl.png
+            href: https://games.gamingdy.fr
+            description: My selfhosted game server
+            siteMonitor: https://games.gamingdy.fr
+            widget:
+                type: pterodactyl
+                url: https://games.gamingdy.fr
+                key: "{{HOMEPAGE_VAR_PTERODACTYL}}"
+
+- Media:
+      - Jellyseer:
+            icon: /icons/jellyseer.png
+            href: https://mediar.gamingdy.fr
+            description: Request manager for jellyfin
+            siteMonitor: https://mediar.gamingdy.fr
+            widget:
+                type: jellyseerr
+                url: https://mediar.gamingdy.fr
+                key: "{{HOMEPAGE_VAR_JELLYSEER}}"
+
+      - Jellyfin:
+            icon: /icons/jellyfin.jpg
+            href: https://media.gamingdy.fr
+            description: Personal media server
+            siteMonitor: https://media.gamingdy.fr
+            widget:
+                type: jellyfin
+                url: https://media.gamingdy.fr
+                key: "{{HOMEPAGE_VAR_JELLYFIN}}"
+                enableBlocks: true # optional, defaults to false
+                enableNowPlaying: false # optional, defaults to true
+
+      - Jellystat:
+            icon: /icons/jellystat.png
+            href: https://medias.gamingdy.fr
+            description: My jellyfin stats
+            siteMonitor: https://medias.gamingdy.fr
+
+- Trinity:
+      - Dozzle:
+            icon: /icons/dozzle.png
+            href: https://dozzle.gamingdy.fr/
+            description: Docker logs
+            siteMonitor: https://dozzle.gamingdy.fr
+
+      - FileBrowser:
+            icon: /icons/filebrowser.png
+            href: https://file.gamingdy.fr
+            description: File manager
+            siteMonitor: https://file.gamingdy.fr
+
+      - Nginx Proxy Manager:
+            icon: /icons/nginx.png
+            href: https://proxy.gamingdy.fr/
+            description: Reverse proxy manager
+            siteMonitor: https://proxy.gamingdy.fr/
+
+      - VPN:
+            icon: /icons/firezone.png
+            href: https://vpn.gamingdy.fr/
+            description: My vpn
+            siteMonitor: https://vpn.gamingdy.fr/
+
+      - Syncthing:
+            icon: /icons/syncthing.png
+            href: https://sync.gamingdy.fr/
+            description: My syncthing
+            siteMonitor: https://sync.gamingdy.fr/
+
+- Grapple:
+      - Dozzle:
+            icon: /icons/dozzle.png
+            href: https://dozzle.grapple.gamingdy.fr/
+            description: Docker logs
+            siteMonitor: https://dozzle.grapple.gamingdy.fr/
+
+      - FileBrowser:
+            icon: /icons/filebrowser.png
+            href: https://file.grapple.gamingdy.fr
+            description: File manager
+            siteMonitor: https://file.grapple.gamingdy.fr
+
+      - Nginx Proxy Manager:
+            icon: /icons/nginx.png
+            href: https://proxy.grapple.gamingdy.fr/
+            description: Reverse proxy manager
+            siteMonitor: https://proxy.grapple.gamingdy.fr/
+
+      - Syncthing:
+            icon: /icons/syncthing.png
+            href: https://sync.grapple.gamingdy.fr/
+            description: My syncthing
+            siteMonitor: https://sync.grapple.gamingdy.fr/
