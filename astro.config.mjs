@@ -1,5 +1,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import starlightLinksValidator from "starlight-links-validator";
+import starlightImageZoom from "starlight-image-zoom";
 
 export default defineConfig({
     site: "https://docs.home.gamingdy.fr",
@@ -14,7 +16,7 @@ export default defineConfig({
                 dark: "./src/assets/favicon.png",
                 replacesTitle: false,
             },
-            sidebar: [
+            plugins: [starlightLinksValidator(), starlightImageZoom()],
                 {
                     label: "Guides",
                     items: [
