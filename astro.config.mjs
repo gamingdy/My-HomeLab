@@ -12,22 +12,27 @@ export default defineConfig({
             social: {
                 github: "https://github.com/gamingdy/My-HomeLab",
             },
+            favicon: "./src/assets/favicon.png",
             logo: {
-                light: "./src/assets/favicon.png",
-                dark: "./src/assets/favicon.png",
+                src: "./src/assets/favicon.png",
                 replacesTitle: false,
             },
             plugins: [starlightLinksValidator(), starlightImageZoom()],
+            head: [
+                // Example: add Fathom analytics script tag.
                 {
-                    label: "Guides",
-                    items: [
-                        // Each item here is one entry in the navigation menu.
-                        { label: "Example Guide", link: "/guides/example/" },
-                    ],
+                    tag: "script",
+                    attrs: {
+                        src: "https://track.gamingdy.fr/script.js",
+                        "data-website-id": "980d54a1-acfe-4e0d-b3e7-14a7fc789f5e",
+                        defer: true,
+                    },
                 },
+            ],
+            sidebar: [
                 {
-                    label: "Reference",
-                    autogenerate: { directory: "reference" },
+                    label: "Tools",
+                    autogenerate: { directory: "tools" },
                 },
             ],
         }),
