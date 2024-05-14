@@ -24,7 +24,7 @@ export default defineConfig({
                     tag: "script",
                     attrs: {
                         src: "https://track.gamingdy.fr/script.js",
-                        "data-website-id": "980d54a1-acfe-4e0d-b3e7-14a7fc789f5e",
+                        "data-website-id": "2746f417-63df-4cf5-a57d-9b980e9f7e22",
                         defer: true,
                     },
                 },
