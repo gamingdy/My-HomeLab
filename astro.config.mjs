@@ -8,6 +8,7 @@ export default defineConfig({
     integrations: [
         starlight({
             title: "My HomeLab",
+            customCss: ["./src/style/custom.css"],
             social: {
                 github: "https://github.com/gamingdy/My-HomeLab",
             },
