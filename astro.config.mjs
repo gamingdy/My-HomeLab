@@ -26,6 +26,7 @@ export default defineConfig({
                         src: "https://track.gamingdy.fr/script.js",
                         "data-website-id": "2746f417-63df-4cf5-a57d-9b980e9f7e22",
                         defer: true,
+                        "data-domains": "docs.home.gamingdy.fr",
                     },
                 },
             ],
