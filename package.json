@@ -11,10 +11,10 @@
     },
     "dependencies": {
         "@astrojs/check": "^0.6.0",
-        "@astrojs/starlight": "^0.22.2",
+        "@astrojs/starlight": "^0.22.4",
         "@expressive-code/plugin-line-numbers": "^0.35.3",
-        "astro": "^4.3.5",
-        "sharp": "^0.32.5",
+        "astro": "^4.9.2",
+        "sharp": "^0.32.6",
         "starlight-image-zoom": "^0.4.0",
         "starlight-links-validator": "^0.8.0",
         "typescript": "^5.4.5"
