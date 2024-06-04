@@ -1,0 +1,2 @@
+octodns==1.7.0
+octodns-ovh==0.0.2

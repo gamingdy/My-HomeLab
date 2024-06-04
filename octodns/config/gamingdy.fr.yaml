@@ -1,0 +1,189 @@
+---
+? ''
+: - ttl: 0
+    type: A
+    values:
+    - 185.199.108.153
+    - 185.199.109.153
+    - 185.199.110.153
+    - 185.199.111.153
+'*.amerpuk':
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+'*.feur':
+  ttl: 0
+  type: A
+  value: 82.65.98.147
+'*.grapple':
+  ttl: 0
+  type: CNAME
+  value: grapple.gamingdy.fr.
+api.php:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+api.spoti:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+auth.php:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+bit:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+book:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+change:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+chat.php:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+ci:
+  ttl: 0
+  type: CNAME
+  value: grapple.gamingdy.fr.
+docs.home:
+  ttl: 0
+  type: CNAME
+  value: gamingdy.github.io.
+dozzle:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+fatboy:
+  ttl: 0
+  type: A
+  value: 82.65.98.147
+file:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+games:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+git:
+  ttl: 0
+  type: CNAME
+  value: grapple.gamingdy.fr.
+grapple:
+  ttl: 0
+  type: A
+  value: 168.119.11.167
+home:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+kuma:
+  ttl: 0
+  type: CNAME
+  value: fatboy.gamingdy.fr.
+limit-breker:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+media:
+  ttl: 0
+  type: CNAME
+  value: grapple.gamingdy.fr.
+mediar:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+medias:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+monitor:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+nil:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+ntfy:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+php:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+portainer:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+prometheus:
+  ttl: 0
+  type: CNAME
+  value: grapple.gamingdy.fr.
+proxy:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+proxy.fatboy:
+  ttl: 0
+  type: CNAME
+  value: fatboy.gamingdy.fr.
+s:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+s1j:
+  ttl: 60
+  type: A
+  value: 90.89.132.244
+scan:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+sonar:
+  ttl: 0
+  type: CNAME
+  value: grapple.gamingdy.fr.
+spoti:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+stats:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+sync:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+test:
+  ttl: 0
+  type: CNAME
+  value: grapple.gamingdy.fr.
+track:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+trinity:
+  ttl: 0
+  type: A
+  value: 141.145.194.218
+vpn:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
+wings:
+  ttl: 0
+  type: CNAME
+  value: grapple.gamingdy.fr.
+www:
+  ttl: 0
+  type: CNAME
+  value: gamingdy.fr.
