@@ -13,8 +13,8 @@
   value: trinity.gamingdy.fr.
 '*.feur':
   ttl: 0
-  type: A
-  value: 82.65.98.147
+  type: CNAME
+  value: fatboy.gamingdy.fr.
 '*.grapple':
   ttl: 0
   type: CNAME
@@ -47,10 +47,6 @@ chat.php:
   ttl: 0
   type: CNAME
   value: trinity.gamingdy.fr.
-ci:
-  ttl: 0
-  type: CNAME
-  value: grapple.gamingdy.fr.
 docs.home:
   ttl: 0
   type: CNAME
@@ -71,10 +67,6 @@ games:
   ttl: 0
   type: CNAME
   value: trinity.gamingdy.fr.
-git:
-  ttl: 0
-  type: CNAME
-  value: grapple.gamingdy.fr.
 grapple:
   ttl: 0
   type: A
@@ -107,7 +99,7 @@ monitor:
   ttl: 0
   type: CNAME
   value: trinity.gamingdy.fr.
-nil:
+nil:  
   ttl: 0
   type: CNAME
   value: trinity.gamingdy.fr.
@@ -147,10 +139,6 @@ scan:
   ttl: 0
   type: CNAME
   value: trinity.gamingdy.fr.
-sonar:
-  ttl: 0
-  type: CNAME
-  value: grapple.gamingdy.fr.
 spoti:
   ttl: 0
   type: CNAME
