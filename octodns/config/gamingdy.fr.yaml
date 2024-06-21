@@ -39,6 +39,10 @@ book:
   ttl: 0
   type: CNAME
   value: trinity.gamingdy.fr.
+burger:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
 change:
   ttl: 0
   type: CNAME
