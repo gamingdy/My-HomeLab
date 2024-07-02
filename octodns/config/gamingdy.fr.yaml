@@ -147,10 +147,6 @@ spoti:
   ttl: 0
   type: CNAME
   value: trinity.gamingdy.fr.
-stats:
-  ttl: 0
-  type: CNAME
-  value: trinity.gamingdy.fr.
 sync:
   ttl: 0
   type: CNAME
