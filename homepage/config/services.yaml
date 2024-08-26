@@ -14,13 +14,13 @@
             href: https://spoti.gamingdy.fr
             description: My spotify stats
             siteMonitor: https://spoti.gamingdy.fr
+      
+      - Ntfy:
+            icon: /icons/ntfy.png
+            href: https://ntfy.gamingdy.fr/
+            description: Push notifications
+            siteMonitor: https://ntfy.gamingdy.fr/
 
-      - Uptime Robot:
-            icon: /icons/uptimerobot.png
-            widget:
-                type: uptimerobot
-                url: https://api.uptimerobot.com
-                key: "{{HOMEPAGE_VAR_UPTIMEROBOT}}"
 
 - Tools:
       - Umami:
