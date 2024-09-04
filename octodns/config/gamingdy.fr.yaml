@@ -111,6 +111,10 @@ ntfy:
   ttl: 0
   type: CNAME
   value: trinity.gamingdy.fr.
+pdf:
+  ttl: 0
+  type: CNAME
+  value: trinity.gamingdy.fr.
 php:
   ttl: 0
   type: CNAME
