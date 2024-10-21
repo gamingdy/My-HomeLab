@@ -111,10 +111,6 @@ ntfy:
     ttl: 0
     type: CNAME
     value: trinity.gamingdy.fr.
-test.palendar:
-    ttl: 0
-    type: CNAME
-    value: grapple.gamingdy.fr
 pdf:
     ttl: 0
     type: CNAME
@@ -163,6 +159,10 @@ test:
     ttl: 0
     type: CNAME
     value: grapple.gamingdy.fr.
+test.palendar:
+    ttl: 0
+    type: CNAME
+    value: grapple.gamingdy.fr
 track:
     ttl: 0
     type: CNAME
