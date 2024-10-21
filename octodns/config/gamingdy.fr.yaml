@@ -162,7 +162,7 @@ test:
 test.palendar:
     ttl: 0
     type: CNAME
-    value: grapple.gamingdy.fr
+    value: grapple.gamingdy.fr.
 track:
     ttl: 0
     type: CNAME
