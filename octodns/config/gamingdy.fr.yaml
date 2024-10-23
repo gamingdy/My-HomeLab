@@ -19,6 +19,10 @@
     ttl: 0
     type: CNAME
     value: grapple.gamingdy.fr.
+api.palendar:
+    ttl: 0
+    type: CNAME
+    value: grapple.gamingdy.fr.
 api.php:
     ttl: 0
     type: CNAME
@@ -111,6 +115,10 @@ ntfy:
     ttl: 0
     type: CNAME
     value: trinity.gamingdy.fr.
+palendar:
+    ttl: 0
+    type: CNAME
+    value: grapple.gamingdy.fr.
 pdf:
     ttl: 0
     type: CNAME
@@ -160,10 +168,6 @@ sync:
     type: CNAME
     value: trinity.gamingdy.fr.
 test:
-    ttl: 0
-    type: CNAME
-    value: grapple.gamingdy.fr.
-test.palendar:
     ttl: 0
     type: CNAME
     value: grapple.gamingdy.fr.
