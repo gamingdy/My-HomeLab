@@ -19,15 +19,7 @@ api.palendar:
     ttl: 0
     type: CNAME
     value: grapple.gamingdy.fr.
-api.php:
-    ttl: 0
-    type: CNAME
-    value: trinity.gamingdy.fr.
 api.spoti:
-    ttl: 0
-    type: CNAME
-    value: trinity.gamingdy.fr.
-auth.php:
     ttl: 0
     type: CNAME
     value: trinity.gamingdy.fr.
@@ -44,10 +36,6 @@ burger:
     type: CNAME
     value: trinity.gamingdy.fr.
 change:
-    ttl: 0
-    type: CNAME
-    value: trinity.gamingdy.fr.
-chat.php:
     ttl: 0
     type: CNAME
     value: trinity.gamingdy.fr.
