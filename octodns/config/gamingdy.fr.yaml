@@ -30,7 +30,7 @@ bit:
 book:
     ttl: 0
     type: CNAME
-    value: trinity.gamingdy.fr.
+    value: grapple.gamingdy.fr.
 burger:
     ttl: 0
     type: CNAME
