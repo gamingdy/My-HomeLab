@@ -115,12 +115,6 @@
             description: Reverse proxy manager
             siteMonitor: https://proxy.gamingdy.fr/
 
-      - VPN:
-            icon: /icons/firezone.png
-            href: https://vpn.gamingdy.fr/
-            description: My vpn
-            siteMonitor: https://vpn.gamingdy.fr/
-
       - Syncthing:
             icon: /icons/syncthing.png
             href: https://sync.gamingdy.fr/
