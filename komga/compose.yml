@@ -1,0 +1,21 @@
+# Komga
+# Web ui: http://komga:25600
+
+services:
+    komga:
+        image: gotson/komga
+        container_name: komga
+        volumes:
+            - ./config:/config
+            - ./data:/data
+            - /etc/timezone:/etc/timezone:ro
+        environment:
+            - JAVA_TOOL_OPTIONS=-Xmx4g
+        restart: always
+        networks:
+            - proxy-net
+
+networks:
+    proxy-net:
+        name: proxy-network
+        external: true
