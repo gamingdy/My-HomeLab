@@ -21,7 +21,6 @@
             description: Push notifications
             siteMonitor: https://ntfy.gamingdy.fr/
 
-
 - Tools:
       - Umami:
             icon: /icons/umami.png
@@ -36,15 +35,15 @@
             siteMonitor: https://portainer.gamingdy.fr
 
       - Book reader:
-            icon: /icons/kavita.png
+            icon: /icons/komga.png
             href: https://book.gamingdy.fr
             description: My books reader
             siteMonitor: https://book.gamingdy.fr
             widget:
-                type: kavita
+                type: komga
                 url: https://book.gamingdy.fr
-                username: "{{HOMEPAGE_VAR_KAVITA_USER}}"
-                password: "{{HOMEPAGE_VAR_KAVITA_PASS}}"
+                username: "{{HOMEPAGE_VAR_KOMGA_USER}}"
+                password: "{{HOMEPAGE_VAR_KOMGA_PASS}}"
 
       - Change detection:
             icon: /icons/changedetection.png
