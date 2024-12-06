@@ -10,28 +10,21 @@ import { Content as WarnBanner } from "../../../components/WarnBanner.md";
 
 <WarnBanner />
 
-import { Code } from "@astrojs/starlight/components";
+import ShowCode from "../../../components/ShowCode.astro";
 
 Create a folder in which to place the lynx data.
 
 You can create a first file named `docker-compose.yml` and put the following content in it
 
-export const response = await fetch("https://raw.githubusercontent.com/gamingdy/My-HomeLab/main/lynx/docker-compose.yml");
-export const content = await response.text();
-
-<Code code={content} lang="yml" title="docker-compose.yml" />
+<ShowCode url="https://raw.githubusercontent.com/gamingdy/My-HomeLab/main/lynx/docker-compose.yml" language="yml" title="docker-compose.yml" />
 
 After that you need to configuration your environnement variable
 
-export const responseEnv = await fetch("https://raw.githubusercontent.com/gamingdy/My-HomeLab/main/lynx/.env");
-export const contentEnv = await responseEnv.text();
 
-<Code code={contentEnv} lang="yml" title="docker-compose.yml" />
+<ShowCode url="https://raw.githubusercontent.com/gamingdy/My-HomeLab/main/lynx/.env" language="yml" title=".env" />
 
-export const responseDbEnv = await fetch("https://raw.githubusercontent.com/gamingdy/My-HomeLab/main/lynx/db.env");
-export const contentDbEnv = await responseDbEnv.text();
 
-<Code code={contentDbEnv} lang="yml" title="docker-compose.yml" />
+<ShowCode url="https://raw.githubusercontent.com/gamingdy/My-HomeLab/main/lynx/db.env" language="yml" title="db.env" />
 
 Once the configuration is complete, you can run the following command
 

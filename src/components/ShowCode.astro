@@ -3,7 +3,7 @@
 import { Code } from "@astrojs/starlight/components";
 
 // Props for the component
-const { url, title, language } = Astro.props;
+const { url, title, language,mark } = Astro.props;
 
 if (!url) {
     throw new Error("URL is required to fetch data.");
@@ -23,4 +23,4 @@ try {
 ---
 
 <!-- Component rendering -->
-<Code code={data} lang={language} title={title} />
+<Code code={data} lang={language} title={title}  mark={mark}/>

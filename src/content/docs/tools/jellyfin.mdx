@@ -10,13 +10,10 @@ import { Content as WarnBanner } from "../../../components/WarnBanner.md";
 
 <WarnBanner />
 
-import { Code } from "@astrojs/starlight/components";
+import ShowCode from "../../../components/ShowCode.astro";
 
 Create a folder in which to place the jellyfin data.
 
 You can create a first file named `docker-compose.yml` and put the following content in it
 
-export const responseJellyfin = await fetch("https://raw.githubusercontent.com/gamingdy/My-HomeLab/main/jellyfin/docker-compose.yml");
-export const contentJellyfin = await responseJellyfin.text();
-
-<Code code={contentJellyfin} lang="yml" title="docker-compose.yml" />
+<ShowCode url="https://raw.githubusercontent.com/gamingdy/My-HomeLab/main/jellyfin/docker-compose.yml" language="yml" title="docker-compose.yml" />

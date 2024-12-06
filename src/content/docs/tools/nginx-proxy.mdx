@@ -8,23 +8,17 @@ sidebar:
     order: 1
 ---
 
-import { Code } from "@astrojs/starlight/components";
+import ShowCode from "../../../components/ShowCode.astro";
 
 Create a folder in which to place the nginx proxy manager data.
 
 You can create a first file named `docker-compose.yml` and put the following content in it
 
-export const responseNpm = await fetch("https://raw.githubusercontent.com/gamingdy/My-HomeLab/refs/heads/main/nginx-proxy/docker-compose.yml");
-export const contentNpm = await responseNpm.text();
-
-<Code code={contentNpm} lang="yml" title="docker-compose.yml" />
+<ShowCode url="https://raw.githubusercontent.com/gamingdy/My-HomeLab/refs/heads/main/nginx-proxy/docker-compose.yml" language="yml" title="docker-compose.yml" />
 
 You can also create a file named `_hsts.conf`
 
-export const responsHsts = await fetch("https://raw.githubusercontent.com/gamingdy/My-HomeLab/refs/heads/main/nginx-proxy/_hsts.conf");
-export const contentHsts = await responsHsts.text();
-
-<Code code={contentHsts} lang="txt" title="_hsts.conf" mark={13} />
+<ShowCode url="https://raw.githubusercontent.com/gamingdy/My-HomeLab/refs/heads/main/nginx-proxy/_hsts.conf" language="txt" title="_hsts.conf" mark={13} />
 
 It is recommended to edit the highlighted line with a different server name
 
