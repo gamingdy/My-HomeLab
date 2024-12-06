@@ -1,0 +1,26 @@
+---
+
+import { Code } from "@astrojs/starlight/components";
+
+// Props for the component
+const { url, title, language } = Astro.props;
+
+if (!url) {
+    throw new Error("URL is required to fetch data.");
+}
+
+// Fetch data during server-side rendering
+let data = "";
+try {
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Failed to fetch data: ${response.statusText}`);
+    }
+    data = await response.text();
+} catch (error) {
+    console.error(error);
+}
+---
+
+<!-- Component rendering -->
+<Code code={data} lang={language} title={title} />
