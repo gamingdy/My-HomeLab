@@ -75,6 +75,10 @@ limit-breker:
     ttl: 0
     type: CNAME
     value: trinity.gamingdy.fr.
+link:
+    ttl: 0
+    type: CNAME
+    value: trinity.gamingdy.fr.
 media:
     ttl: 0
     type: CNAME
