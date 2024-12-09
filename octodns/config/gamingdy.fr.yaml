@@ -123,10 +123,6 @@ proxy:
     ttl: 0
     type: CNAME
     value: trinity.gamingdy.fr.
-proxy.fatboy:
-    ttl: 0
-    type: CNAME
-    value: fatboy.gamingdy.fr.
 s:
     ttl: 0
     type: CNAME
