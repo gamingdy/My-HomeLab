@@ -7,10 +7,10 @@ banner:
 ---
 
 import WarnBanner from "../../../components/WarnBanner.astro";
+import ShowCode from "../../../components/ShowCode.astro";
+import { FileTree } from "@astrojs/starlight/components";
 
 <WarnBanner />
-
-import ShowCode from "../../../components/ShowCode.astro";
 
 Create a folder in which to place the dozzle data.
 
@@ -20,7 +20,15 @@ You can create a first file named `docker-compose.yml` and put the following con
 
 After that, you need to create a new folder called `data`, create a file named `users.yml`
 
-<ShowCode url="https://raw.githubusercontent.com/gamingdy/My-HomeLab/refs/heads/main/dozzle/data/users.yml" language="yml" title="data/users.yml"/>
+<ShowCode url="https://raw.githubusercontent.com/gamingdy/My-HomeLab/refs/heads/main/dozzle/data/users.yml" language="yml" title="data/users.yml" />
+
+You should have the following file tree
+
+<FileTree>
+- docker-compose.yml
+- data
+    - users.yml
+</FileTree>
 
 Once the configuration is complete, you can run the following command
 
