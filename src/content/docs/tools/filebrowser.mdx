@@ -7,16 +7,20 @@ banner:
 ---
 
 import WarnBanner from "../../../components/WarnBanner.astro";
+import { Aside } from "@astrojs/starlight/components";
+import ShowCode from "../../../components/ShowCode.astro";
 
 <WarnBanner />
-
-import ShowCode from "../../../components/ShowCode.astro";
 
 Create a folder in which to place the filebrowser data.
 
 You can create a first file named `docker-compose.yml` and put the following content in it
 
 <ShowCode url="https://raw.githubusercontent.com/gamingdy/My-HomeLab/main/filebrowser/docker-compose.yml" language="yml" title="docker-compose.yml" />
+
+<Aside type="caution">
+    You must create a file named `filebrowser.db` before starting
+</Aside>
 
 Once the configuration is complete, you can run the following command
 
