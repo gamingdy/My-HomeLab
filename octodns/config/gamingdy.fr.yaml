@@ -23,6 +23,14 @@ api.spoti:
     ttl: 0
     type: CNAME
     value: trinity.gamingdy.fr.
+beta.api.palendar:
+    ttl: 0
+    type: CNAME
+    value: grapple.gamingdy.fr.
+beta.palendar:
+    ttl: 0
+    type: CNAME
+    value: grapple.gamingdy.fr.
 bit:
     ttl: 0
     type: CNAME
