@@ -1,0 +1,29 @@
+services:
+    traefik:
+        image: traefik:v3.3.6
+        container_name: traefik
+        restart: always
+        volumes:
+            - ./traefik.yml:/etc/traefik/traefik.yml
+            - ./acme.json:/etc/traefik/certs/acme.json
+            - ./dynamic:/etc/traefik/dynamic
+            - /var/run/docker.sock:/var/run/docker.sock
+        ports:
+          - "80:80"
+          - "443:443"
+        networks:
+          - proxy-net
+        labels:
+            traefik.enable: true
+            traefik.http.routers.proxy.entrypoints: web,websecure
+            traefik.http.routers.proxy.tls: true
+            traefik.http.routers.proxy.tls.certresolver: production
+            traefik.http.routers.proxy.rule: Host(`proxy.example.com`)
+            traefik.http.services.proxy.loadbalancer.server.port: 8080
+            traefik.http.routers.proxy.middlewares: proxy-auth@file, me@file
+            
+      
+networks:
+    proxy-net:
+        name: proxy-network
+        driver: bridge

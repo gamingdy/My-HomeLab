@@ -1,0 +1,22 @@
+http:
+    middlewares:
+        my-umami:
+            plugin:
+                umami-plugin:
+                    umamiHost: "https://umami.example.com"
+                    umamiUsername: "username"
+                    umamiPassword: "password"
+                    createNewWebsites: true
+                    ignoreUserAgents: ["Uptime-Kuma"]
+
+        proxy-auth:
+            basicauth:
+                users: user:password
+        trinity:
+            ipAllowList:
+                sourceRange:
+                    - "1.2.3.4"
+        me:
+            ipAllowList:
+                sourceRange:
+                    - "1.2.3.4"
