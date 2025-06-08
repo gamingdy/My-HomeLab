@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import {defineConfig} from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightLinksValidator from "starlight-links-validator";
 import starlightImageZoom from "starlight-image-zoom";
@@ -9,9 +9,12 @@ export default defineConfig({
         starlight({
             title: "My HomeLab",
             customCss: ["./src/style/custom.css"],
-            social: {
-                github: "https://github.com/gamingdy/My-HomeLab",
-            },
+            social: [
+                {
+                    icon: "github", label: "GitHub",
+                    href: "https://github.com/gamingdy/My-HomeLab"
+                }
+            ],
             favicon: "./src/assets/favicon.png",
             logo: {
                 src: "./src/assets/favicon.png",
@@ -33,7 +36,7 @@ export default defineConfig({
             sidebar: [
                 {
                     label: "Tools",
-                    autogenerate: { directory: "tools" },
+                    autogenerate: {directory: "tools"},
                 },
             ],
         }),
