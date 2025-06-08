@@ -13,16 +13,24 @@ services:
             - mongo
         networks:
             - proxy-net
-            - spotify-network
+            - spoti-net
         env_file:
             - ./server.env
+        labels:
+            traefik.enable: true
+            traefik.http.routers.spotify-server.entrypoints: web,websecure
+            traefik.http.routers.spotify-server.tls: true
+            traefik.http.routers.spotify-server.tls.certresolver: production
+            traefik.http.routers.spotify-server.rule: Host(`api.spoti.example.com`)
+            traefik.http.services.spotify-server.loadbalancer.server.port: 8080
+            traefik.docker.network: proxy-network
 
     mongo:
         container_name: mongo
         image: mongo:4.4.8
         restart: always
         networks:
-            - spotify-network
+            - spoti-net
         volumes:
             - ./mongo/db:/data/db
 
@@ -35,13 +43,16 @@ services:
             - proxy-net
         env_file:
             - ./client.env
+        labels:
+            traefik.enable: true
+            traefik.http.routers.spotify-client.entrypoints: web,websecure
+            traefik.http.routers.spotify-client.tls: true
+            traefik.http.routers.spotify-client.tls.certresolver: production
+            traefik.http.routers.spotify-client.rule: Host(`spoti.example.com`)
+            traefik.http.services.spotify-client.loadbalancer.server.port: 3000
 
 networks:
-    spotify-network:
-        driver: bridge
-        ipam:
-            config:
-                - subnet: 172.16.0.30/29
+    spoti-net:
     proxy-net:
         name: proxy-network
         external: true

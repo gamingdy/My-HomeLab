@@ -19,6 +19,13 @@ services:
             - 6881:6881
             - 6881:6881/udp
         restart: unless-stopped
+        labels:
+            traefik.enable: true
+            traefik.http.routers.qbittorrent.entrypoints: web,websecure
+            traefik.http.routers.qbittorrent.tls: true
+            traefik.http.routers.qbittorrent.tls.certresolver: production
+            traefik.http.routers.qbittorrent.rule: Host(`qbit.example.com`)
+            traefik.http.services.qbittorrent.loadbalancer.server.port: 8085
 
 networks:
     proxy-net:

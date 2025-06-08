@@ -3,12 +3,10 @@
 
 services:
     umami:
-        image: ghcr.io/umami-software/umami:postgresql-v2.11.3
+        image: ghcr.io/umami-software/umami:postgresql-latest
         container_name: umami
         restart: unless-stopped
         environment:
-            # url format :
-            # DATABASE_URL: postgresql://username:password@hostname:port/database
             DATABASE_URL: postgresql://umami:umami@umami-db:5432/umami
             DATABASE_TYPE: postgresql
         env_file:
@@ -16,6 +14,14 @@ services:
         networks:
             - umami-net
             - proxy-net
+        labels:
+            traefik.enable: true
+            traefik.http.routers.umami.entrypoints: web,websecure
+            traefik.http.routers.umami.tls: true
+            traefik.http.routers.umami.tls.certresolver: production
+            traefik.http.routers.umami.rule: Host(`track.example.com`)
+            traefik.http.services.umami.loadbalancer.server.port: 3000
+            traefik.docker.network: proxy-network
 
     db:
         image: postgres:15-alpine

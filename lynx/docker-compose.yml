@@ -25,13 +25,21 @@ services:
             - ./backups:/app/backups
         env_file:
             - .env
+        labels:
+            traefik.enable: true
+            traefik.http.routers.lynx.entrypoints: web,websecure
+            traefik.http.routers.lynx.tls: true
+            traefik.http.routers.lynx.tls.certresolver: production
+            traefik.http.routers.lynx.rule: Host(`lynx.example.com`)
+            traefik.http.services.lynx.loadbalancer.server.port: 3000
+            traefik.docker.network: proxy-network
 
 networks:
     lynx-network:
         driver: bridge
         ipam:
             config:
-                - subnet: 172.16.0.0/29
+                -   subnet: 172.16.0.0/29
     proxy-net:
         name: proxy-network
         external: true

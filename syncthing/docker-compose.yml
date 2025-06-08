@@ -2,26 +2,33 @@
 # Web UI: http://syncthing:8384
 
 services:
-  syncthing:
-    image: lscr.io/linuxserver/syncthing:latest
-    container_name: syncthing
-    hostname: syncthing
-    environment:
-      - PUID=1001
-      - PGID=1001
-      - TZ=Europe/Paris
-    volumes:
-      - ./config:/config
-      - ./data:/data
-    ports:
-      - 22000:22000/tcp
-      - 22000:22000/udp
-      - 21027:21027/udp
-    restart: unless-stopped
-    networks:
-      - proxy-net
- 
+    syncthing:
+        image: lscr.io/linuxserver/syncthing:latest
+        container_name: syncthing
+        hostname: syncthing
+        environment:
+            - PUID=1001
+            - PGID=1001
+            - TZ=Europe/Paris
+        volumes:
+            - ./config:/config
+            - ./data:/data
+        ports:
+            - 22000:22000/tcp
+            - 22000:22000/udp
+            - 21027:21027/udp
+        restart: unless-stopped
+        networks:
+            - proxy-net
+        labels:
+            traefik.enable: true
+            traefik.http.routers.sync.entrypoints: web,websecure
+            traefik.http.routers.sync.tls: true
+            traefik.http.routers.sync.tls.certresolver: production
+            traefik.http.routers.sync.rule: Host(`sync.example.com`)
+            traefik.http.services.sync.loadbalancer.server.port: 8384
+
 networks:
-  proxy-net:
-    name: proxy-network
-    external: true
+    proxy-net:
+        name: proxy-network
+        external: true

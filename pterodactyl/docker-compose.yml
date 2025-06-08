@@ -10,7 +10,7 @@ x-common:
         MYSQL_PASSWORD: &db-password ""
         MYSQL_ROOT_PASSWORD: ""
     panel: &panel-environment # This URL should be the URL that your reverse proxy routes to the panel server
-        APP_URL: "https://panel.example.com"
+        APP_URL: "https://games.example.com"
         # A list of valid timezones can be found here: http://php.net/manual/en/timezones.php
         APP_TIMEZONE: "Europe/Paris"
         APP_SERVICE_AUTHOR: "admin@example.com"
@@ -62,7 +62,7 @@ services:
             - "./certs/:/etc/letsencrypt/"
             - "./logs/:/app/storage/logs"
         environment:
-            <<: [*panel-environment]
+            <<: [ *panel-environment ]
             DB_PASSWORD: *db-password
             APP_ENV: "production"
             APP_ENVIRONMENT_ONLY: "false"
@@ -76,13 +76,21 @@ services:
         networks:
             - ptero-network
             - proxy-net
+        labels:
+            traefik.enable: true
+            traefik.http.routers.ptero-panel.entrypoints: web,websecure
+            traefik.http.routers.ptero-panel.tls: true
+            traefik.http.routers.ptero-panel.tls.certresolver: production
+            traefik.http.routers.ptero-panel.rule: Host(`games.example.com`)
+            traefik.http.services.ptero-panel.loadbalancer.server.port: 80
+            traefik.docker.network: proxy-network
 
 networks:
     ptero-network:
         driver: bridge
         ipam:
             config:
-                - subnet: 172.16.0.8/29
+                -   subnet: 172.16.0.8/29
 
     proxy-net:
         name: proxy-network

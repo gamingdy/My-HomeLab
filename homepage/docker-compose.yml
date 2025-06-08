@@ -18,6 +18,13 @@ services:
         restart: always
         networks:
             - proxy-net
+        labels:
+            traefik.enable: true
+            traefik.http.routers.homepage.entrypoints: web,websecure
+            traefik.http.routers.homepage.tls: true
+            traefik.http.routers.homepage.tls.certresolver: production
+            traefik.http.routers.homepage.rule: Host(`home.example.com`)
+            traefik.http.services.homepage.loadbalancer.server.port: 3000
 
 
 networks:

@@ -4,18 +4,23 @@
 services:
     stirling-pdf:
         container_name: stirling-pdf
-        image: frooodle/s-pdf:latest
+        image: stirlingtools/stirling-pdf:latest
         volumes:
-            #- ./trainingData:/usr/share/tessdata #Required for extra OCR languages
             - ./configs:/configs
-            #- ./customFiles:/customFiles/
-            #- ./logs:/logs/
         environment:
             - DOCKER_ENABLE_SECURITY=false
             - INSTALL_BOOK_AND_ADVANCED_HTML_OPS=false
             - LANGS=en_GB
         networks:
             - proxy-net
+        restart: always
+        labels:
+            traefik.enable: true
+            traefik.http.routers.pdf.entrypoints: web,websecure
+            traefik.http.routers.pdf.tls: true
+            traefik.http.routers.pdf.tls.certresolver: production
+            traefik.http.routers.pdf.rule: Host(`pdf.example.com`)
+            traefik.http.services.pdf.loadbalancer.server.port: 8080
 
 networks:
     proxy-net:
