@@ -2,13 +2,14 @@ import {defineConfig} from "astro/config";
 import starlight from "@astrojs/starlight";
 import starlightLinksValidator from "starlight-links-validator";
 import starlightImageZoom from "starlight-image-zoom";
+import catppuccin from "@catppuccin/starlight";
 
 export default defineConfig({
     site: "https://docs.home.gamingdy.fr",
     integrations: [
         starlight({
             title: "My HomeLab",
-            customCss: ["./src/style/custom.css"],
+            lastUpdated: true,
             social: [
                 {
                     icon: "github", label: "GitHub",
@@ -20,9 +21,17 @@ export default defineConfig({
                 src: "./src/assets/favicon.png",
                 replacesTitle: false,
             },
-            plugins: [starlightLinksValidator(), starlightImageZoom()],
+            plugins: [starlightLinksValidator(), starlightImageZoom(), catppuccin({
+                dark: {flavor: "mocha", accent: "mauve"},
+                light: {flavor: "latte", accent: "mauve"}
+            })],
+            expressiveCode: {
+                // Replace the default themes with a custom set of bundled themes:
+                // "dracula" (a dark theme) and "solarized-light"
+                themes: ['catppuccin-mocha', 'material-theme-lighter'],
+                removeUnusedThemes: true,
+            },
             head: [
-                // Example: add Fathom analytics script tag.
                 {
                     tag: "script",
                     attrs: {

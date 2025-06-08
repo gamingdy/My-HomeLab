@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/starlight": "^0.34.3",
+    "@catppuccin/starlight": "^1.0.1",
     "@expressive-code/plugin-line-numbers": "^0.41.2",
     "astro": "^5.9.1",
     "sharp": "^0.32.6",
