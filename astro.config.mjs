@@ -9,6 +9,7 @@ export default defineConfig({
     integrations: [
         starlight({
             title: "My HomeLab",
+            customCss: ["./src/style/custom.css"],
             lastUpdated: true,
             social: [
                 {
