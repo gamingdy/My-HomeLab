@@ -1,0 +1,55 @@
+# Firefly III
+# Web UI: http://firefly_iii_core:8080
+
+services:
+    app:
+        image: fireflyiii/core:version-6.2.12
+        hostname: app
+        container_name: firefly_iii_core
+        restart: always
+        volumes:
+            - ./upload:/var/www/html/storage/upload
+        env_file: .env
+        networks:
+            - firefly_iii
+            - proxy-net
+        depends_on:
+            - db
+        labels:
+            traefik.enable: true
+            traefik.http.routers.firefly.entrypoints: web,websecure
+            traefik.http.routers.firefly.tls: true
+            traefik.http.routers.firefly.tls.certresolver: production
+            traefik.http.routers.firefly.rule: Host(`firefly.example.com`)
+            traefik.http.services.firefly.loadbalancer.server.port: 8080
+            traefik.docker.network: proxy-network
+
+    db:
+        image: mariadb:11.4.2
+        hostname: db
+        container_name: firefly_iii_db
+        restart: always
+        env_file: .db.env
+        networks:
+            - firefly_iii
+        volumes:
+            - ./db:/var/lib/mysql
+
+    cron:
+        #
+        # To make this work, set STATIC_CRON_TOKEN in your .env file or as an environment variable and replace REPLACEME below
+        # The STATIC_CRON_TOKEN must be *exactly* 32 characters long
+        #
+        image: alpine:3.20.1
+        restart: always
+        container_name: firefly_iii_cron
+        command: sh -c "echo \"0 3 * * * wget -qO- http://app:8080/api/v1/cron/MW9^wcXp%xiXd6@SucBay8FdXH9b5w7&\" | crontab - && crond -f -L /dev/stdout"
+        networks:
+            - firefly_iii
+
+
+networks:
+    firefly_iii:
+    proxy-net:
+        name: proxy-network
+        external: true
