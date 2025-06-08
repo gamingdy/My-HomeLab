@@ -1,0 +1,41 @@
+# Linkwarden
+# Web ui at http://linkwarden:3000
+#
+services:
+    postgres:
+        image: postgres:16-alpine
+        env_file: .env
+        restart: always
+        volumes:
+            - ./pgdata:/var/lib/postgresql/data
+        networks:
+            - link-net
+
+    linkwarden:
+        container_name: linkwarden
+        env_file: .env
+        environment:
+            - DATABASE_URL=postgresql://postgres:${POSTGRES_PASSWORD}@postgres:5432/postgres
+        restart: always
+        image: ghcr.io/linkwarden/linkwarden:latest # comment this line to build from source
+        volumes:
+            - ./data:/data/data
+        depends_on:
+            - postgres
+        networks:
+            - link-net
+            - proxy-net
+        labels:
+            traefik.enable: true
+            traefik.http.routers.linkwarden.entrypoints: web,websecure
+            traefik.http.routers.linkwarden.tls: true
+            traefik.http.routers.linkwarden.tls.certresolver: production
+            traefik.http.routers.linkwarden.rule: Host(`link.example.com`)
+            traefik.http.services.linkwarden.loadbalancer.server.port: 3000
+            traefik.docker.network: proxy-network
+
+networks:
+    link-net:
+    proxy-net:
+        name: proxy-network
+        external: true
