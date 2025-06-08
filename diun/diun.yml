@@ -1,0 +1,19 @@
+# ./diun.yml
+
+watch:
+    workers: 20
+    firstCheckNotif: true
+    schedule: "0 */12 * * *"
+
+providers:
+    docker:
+        watchByDefault: true
+        watchStopped: true
+
+notif:
+    discord:
+        webhookURL: "https://discord.com/api/webhooks/your-webhook-id"
+        renderFields: true
+        timeout: 10s
+        templateBody: |
+            Docker tag {{ .Entry.Image }} which you subscribed to through {{ .Entry.Provider }} provider has been released.
