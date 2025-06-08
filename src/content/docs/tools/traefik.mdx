@@ -1,0 +1,23 @@
+---
+title: Traefik
+template: doc
+banner:
+    content: |
+        ⚠️ This documentation, is under development. Expect changes!
+sidebar:
+    order: 1
+---
+
+import ShowCode from "../../../components/ShowCode.astro";
+
+Create a folder in which to place the traefik data.
+
+You can create a first file named `compose.yml` and put the following content in it
+
+<ShowCode url="traefik/compose.yml" language="yml" title="compose.yml" isGithub/>
+
+Once the configuration is complete, you can run the following command
+
+```bash
+docker compose up -d
+```

@@ -1,12 +1,17 @@
 ---
+import {Code} from "@astrojs/starlight/components";
 
-import { Code } from "@astrojs/starlight/components";
+const GITHUB_BASE_URL: string = "https://raw.githubusercontent.com/gamingdy/My-HomeLab/refs/heads/main/";
 
 // Props for the component
-const { url, title, language,mark } = Astro.props;
+let {url, title, language, mark, isGithub} = Astro.props;
 
 if (!url) {
     throw new Error("URL is required to fetch data.");
+}
+
+if (isGithub) {
+    url = `${GITHUB_BASE_URL}/${url}`;
 }
 
 // Fetch data during server-side rendering
@@ -23,4 +28,4 @@ try {
 ---
 
 <!-- Component rendering -->
-<Code code={data} lang={language} title={title}  mark={mark}/>
+<Code code={data} lang={language} title={title} mark={mark}/>
