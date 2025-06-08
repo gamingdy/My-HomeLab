@@ -1,0 +1,53 @@
+# TachiDesk
+# Web UI: http://tachidesk:4567
+
+
+services:
+    tachidesk:
+        image: ghcr.io/suwayomi/suwayomi-server:v2.0.1761
+        container_name: tachidesk
+        environment:
+            - TZ=Europe/Paris
+            - DOWNLOAD_AS_CBZ=true
+            - AUTO_DOWNLOAD_CHAPTERS=true
+            - FLARESOLVERR_ENABLED=true
+            - FLARESOLVERR_URL=http://flaresolverr:8191
+            - BASIC_AUTH_ENABLED=true
+            - BASIC_AUTH_USERNAME=user
+            - BASIC_AUTH_PASSWORD=password
+            - AUTO_DOWNLOAD_EXCLUDE_UNREAD=true
+            - EXTENSION_REPOS=["https://raw.githubusercontent.com/keiyoushi/extensions/repo/index.min.json"]
+            - UPDATE_EXCLUDE_UNREAD=false
+            - UPDATE_EXCLUDE_STARTED=false
+            - UPDATE_EXCLUDE_COMPLETED=true
+            - UPDATE_MANGA_INFO=true
+        volumes: # The order matters! Make sure the downloads is first in the volume list or it will not work!
+            - ./downloads:/home/suwayomi/.local/share/Tachidesk/downloads
+            - ./files:/home/suwayomi/.local/share/Tachidesk
+        restart: always
+        networks:
+            - proxy-net
+            - tachi-net
+        labels:
+            traefik.enable: true
+            traefik.http.routers.tachi.entrypoints: web,websecure
+            traefik.http.routers.tachi.tls: true
+            traefik.http.routers.tachi.tls.certresolver: production
+            traefik.http.routers.tachi.rule: Host(`tachidesk.example.com`)
+            traefik.http.services.tachi.loadbalancer.server.port: 4567
+            traefik.docker.network: proxy-network
+
+    flaresolverr:
+        image: ghcr.io/thephaseless/byparr:latest
+        container_name: flaresolverr
+        environment:
+            - TZ=Etc/Paris
+        restart: always
+        networks:
+            - tachi-net
+
+networks:
+    tachi-net:
+    proxy-net:
+        name: proxy-network
+        external: true
