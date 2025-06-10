@@ -1,0 +1,14 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sergi0g/cup/main/cup.schema.json",
+    "version": 3,
+    "theme": "blue",
+    "refresh_interval": "0 0 */12 * * *",
+    "registries": {
+        "ghcr.io": {
+            "authentication": ""
+        }
+    },
+    "servers": {
+        "My server": "https://cup-instance.example.com"
+    }
+}

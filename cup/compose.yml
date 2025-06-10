@@ -1,0 +1,21 @@
+services:
+    cup:
+        command: '-c /config/cup.json serve -p 9000'
+        image: ghcr.io/sergi0g/cup
+        volumes:
+            - '/var/run/docker.sock:/var/run/docker.sock'
+            - ./cup.json:/config/cup.json
+        networks:
+            - proxy-net
+        labels:
+            traefik.enable: true
+            traefik.http.routers.cup.entrypoints: web,websecure
+            traefik.http.routers.cup.tls: true
+            traefik.http.routers.cup.tls.certresolver: production
+            traefik.http.routers.cup.rule: Host(`cup.example.com`)
+            traefik.http.services.cup.loadbalancer.server.port: 9000
+            
+networks:
+    proxy-net:
+        name: proxy-network
+        external: true
