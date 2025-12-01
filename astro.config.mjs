@@ -4,6 +4,7 @@ import starlightLinksValidator from "starlight-links-validator";
 import starlightImageZoom from "starlight-image-zoom";
 import catppuccin from "@catppuccin/starlight";
 import starlightAutoSidebar from "starlight-auto-sidebar";
+import starlightCodeblockFullscreen from "starlight-codeblock-fullscreen";
 
 export default defineConfig({
     site: "https://docs.home.gamingdy.fr",
@@ -23,10 +24,15 @@ export default defineConfig({
                 src: "./src/assets/favicon.png",
                 replacesTitle: false,
             },
-            plugins: [starlightLinksValidator(), starlightImageZoom(),starlightAutoSidebar(), catppuccin({
-                dark: {flavor: "mocha", accent: "mauve"},
-                light: {flavor: "latte", accent: "mauve"}
-            })],
+            plugins: [starlightLinksValidator(), starlightImageZoom(), starlightAutoSidebar(),
+                starlightCodeblockFullscreen({
+                    fullscreenButtonTooltip: 'View in fullscreen',
+                    enableEscapeKey: true
+                }),
+                catppuccin({
+                    dark: {flavor: "mocha", accent: "mauve"},
+                    light: {flavor: "latte", accent: "mauve"}
+                })],
             expressiveCode: {
                 // Replace the default themes with a custom set of bundled themes:
                 // "dracula" (a dark theme) and "solarized-light"
