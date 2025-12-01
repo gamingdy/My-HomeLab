@@ -17,7 +17,7 @@ export default defineConfig({
                     href: "https://github.com/gamingdy/My-HomeLab"
                 }
             ],
-            favicon: "./src/assets/favicon.png",
+            favicon: "./src/assets/favicon.ico",
             logo: {
                 src: "./src/assets/favicon.png",
                 replacesTitle: false,
