@@ -1,0 +1,31 @@
+﻿# Homepage
+# Web UI: http://homepage:3000
+
+services:
+    homepage:
+        image: ghcr.io/gethomepage/homepage:latest
+        container_name: homepage
+        volumes:
+            - ./images:/app/public/images
+            - ./icons:/app/public/icons
+            - ./config:/app/config # Make sure your local config directory exists
+        env_file:
+            - .env
+        environment:
+            PUID: $PUID
+            PGID: $PGID
+        restart: always
+        networks:
+            - proxy-net
+        labels:
+            traefik.enable: true
+            traefik.http.routers.homepage.entrypoints: web,websecure
+            traefik.http.routers.homepage.tls: true
+            traefik.http.routers.homepage.tls.certresolver: production
+            traefik.http.routers.homepage.rule: Host(`homepage.example.com`)
+            traefik.http.services.homepage.loadbalancer.server.port: 3000
+
+networks:
+    proxy-net:
+        name: proxy-network
+        external: true
