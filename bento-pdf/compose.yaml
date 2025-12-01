@@ -1,19 +1,12 @@
-# Stirling PDF Service
-# Web UI: http://stirling-pdf:8080
+# Web: http://bentopdf:8080
 
 services:
-    stirling-pdf:
-        container_name: stirling-pdf
-        image: stirlingtools/stirling-pdf:latest
-        volumes:
-            - ./configs:/configs
-        environment:
-            - DOCKER_ENABLE_SECURITY=false
-            - INSTALL_BOOK_AND_ADVANCED_HTML_OPS=false
-            - LANGS=en_GB
+    bentopdf:
+        image: ghcr.io/alam00000/bentopdf-simple:latest
+        container_name: bentopdf
+        restart: always
         networks:
             - proxy-net
-        restart: always
         labels:
             traefik.enable: true
             traefik.http.routers.pdf.entrypoints: web,websecure
