@@ -3,6 +3,7 @@ import starlight from "@astrojs/starlight";
 import starlightLinksValidator from "starlight-links-validator";
 import starlightImageZoom from "starlight-image-zoom";
 import catppuccin from "@catppuccin/starlight";
+import starlightAutoSidebar from "starlight-auto-sidebar";
 
 export default defineConfig({
     site: "https://docs.home.gamingdy.fr",
@@ -22,7 +23,7 @@ export default defineConfig({
                 src: "./src/assets/favicon.png",
                 replacesTitle: false,
             },
-            plugins: [starlightLinksValidator(), starlightImageZoom(), catppuccin({
+            plugins: [starlightLinksValidator(), starlightImageZoom(),starlightAutoSidebar(), catppuccin({
                 dark: {flavor: "mocha", accent: "mauve"},
                 light: {flavor: "latte", accent: "mauve"}
             })],
