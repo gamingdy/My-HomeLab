@@ -12,10 +12,6 @@ http:
         proxy-auth:
             basicauth:
                 users: user:password
-        trinity:
-            ipAllowList:
-                sourceRange:
-                    - "1.2.3.4"
         me:
             ipAllowList:
                 sourceRange:
