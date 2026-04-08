@@ -1,0 +1,6 @@
+﻿---
+import {Aside} from "@astrojs/starlight/components";
+
+const {type, ...props} = Astro.props;
+---
+<Aside type={type} {...props}> <slot /> </Aside>

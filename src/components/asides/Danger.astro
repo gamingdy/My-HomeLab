@@ -1,0 +1,6 @@
+﻿---
+import CustomAside from "@components/asides/CustomAside.astro";
+
+const {...props} = Astro.props;
+---
+<CustomAside type="danger" {...props}> <slot /> </CustomAside>

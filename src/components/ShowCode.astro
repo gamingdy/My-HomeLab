@@ -4,7 +4,7 @@ import {Code} from "@astrojs/starlight/components";
 const GITHUB_BASE_URL: string = "https://raw.githubusercontent.com/gamingdy/My-HomeLab/refs/heads/main/";
 
 // Props for the component
-let {url, title, language, mark, isGithub} = Astro.props;
+let {url, title, language, mark, isGithub, lineStart, lineEnd} = Astro.props;
 
 if (!url) {
     throw new Error("URL is required to fetch data.");
@@ -19,13 +19,25 @@ let data = "";
 try {
     const response = await fetch(url);
     if (!response.ok) {
-        throw new Error(`Failed to fetch data: ${response.statusText}`);
+        console.error(new Error(`Failed to fetch data: ${response.statusText}`));
+    } else {
+        data = await response.text();
+
+        if (lineStart !== undefined || lineEnd !== undefined) {
+            const startLine = Number(lineStart ?? lineEnd);
+            const endLine = Number(lineEnd ?? lineStart);
+
+            if (Number.isInteger(startLine) && Number.isInteger(endLine) && startLine > 0 && endLine >= startLine) {
+                data = "...\n"+ data.split(/\r?\n/).slice(startLine - 1, endLine).join("\n") +"\n...";
+            } else {
+                data = "";
+            }
+        }
     }
-    data = await response.text();
 } catch (error) {
     console.error(error);
 }
 ---
 
 <!-- Component rendering -->
-<Code code={data} lang={language} title={title} mark={mark}/>
+<Code code={data} lang={language} title={title} mark={mark} startLineNumber={lineStart ? lineStart -1 : undefined} />

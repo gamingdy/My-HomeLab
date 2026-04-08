@@ -6,6 +6,54 @@ banner:
         ⚠️ This documentation, is under development. Expect changes!
 ---
 
+
 import WarnBanner from "@components/WarnBanner.astro";
+import ShowCode from "@components/ShowCode.astro";
+import Caution from "@components/asides/Caution.astro";
+import {FileTree} from "@astrojs/starlight/components";
 
 <WarnBanner />
+
+## Installation
+
+1. Create a folder in which to place the cup data.
+   In the cup folder, create file and folder to have the following structure:
+
+<FileTree>
+
+- cup
+    - compose.yaml
+    - cup.json
+
+</FileTree>
+
+2. First your compose.yaml, add the following content
+
+<ShowCode url="cup/compose.yaml" language="yml" title="compose.yaml" isGithub />
+
+3. In your cup.json, add the following content
+<ShowCode url="cup/cup.json" language="json" title="cup.json" isGithub />
+
+## Configuration
+---
+
+<Caution> Your server url must be the same as the traefik host </Caution>
+
+<ShowCode url="cup/cup.json" language="json" title="cup.json" isGithub lineStart={12} lineEnd={12}/>
+<ShowCode url="cup/compose.yaml" language="yml" title="compose.yaml" isGithub lineStart={15} lineEnd={15}/>
+
+---
+If you want to add private docker registry, edit the following lines in the cup.json
+<ShowCode url="cup/cup.json" language="json" title="cup.json" isGithub lineStart={6} lineEnd={10}/>
+
+A complete docs for cup configuration is available in the [cup documentation](https://cup.sergi0g.dev/docs)
+
+---
+
+## Usage
+To start cup, run the following command in the cup folder:
+
+```bash
+docker compose up -d
+```
+After a few seconds, you should be able to access the cup dashboard at `https://cup.example.com`.

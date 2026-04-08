@@ -5,7 +5,7 @@ import starlightImageZoom from "starlight-image-zoom";
 import catppuccin from "@catppuccin/starlight";
 import starlightAutoSidebar from "starlight-auto-sidebar";
 import starlightCodeblockFullscreen from "starlight-codeblock-fullscreen";
-import { fileURLToPath } from 'node:url';
+import {fileURLToPath} from 'node:url';
 
 export default defineConfig({
     site: "https://docs.home.gamingdy.fr",

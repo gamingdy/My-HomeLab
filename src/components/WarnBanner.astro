@@ -1,6 +1,7 @@
 ---
-import {Aside} from "@astrojs/starlight/components";
+import Caution from "@components/asides/Caution.astro";
 ---
 
-<Aside type="caution">The following guide assumes you've used my reverse proxy setup, if not you can find it <a
-        href="/tools/traefik/">here</a></Aside>
+<Caution title="Important" >
+    The following guide assumes you've used my reverse proxy setup, if not you can find it <a href="/tools/traefik/">here</a>
+</Caution>
