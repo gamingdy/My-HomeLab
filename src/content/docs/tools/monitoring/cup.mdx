@@ -7,9 +7,11 @@ banner:
 ---
 
 
+
+
 import WarnBanner from "@components/WarnBanner.astro";
 import ShowCode from "@components/ShowCode.astro";
-import Caution from "@components/asides/Caution.astro";
+import Link from "@components/Link.astro";
 import {FileTree} from "@astrojs/starlight/components";
 
 <WarnBanner />
@@ -34,19 +36,8 @@ import {FileTree} from "@astrojs/starlight/components";
 3. In your cup.json, add the following content
 <ShowCode url="cup/cup.json" language="json" title="cup.json" isGithub />
 
-## Configuration
----
-
-<Caution> Your server url must be the same as the traefik host </Caution>
-
-<ShowCode url="cup/cup.json" language="json" title="cup.json" isGithub lineStart={12} lineEnd={12}/>
-<ShowCode url="cup/compose.yaml" language="yml" title="compose.yaml" isGithub lineStart={15} lineEnd={15}/>
-
----
-If you want to add private docker registry, edit the following lines in the cup.json
-<ShowCode url="cup/cup.json" language="json" title="cup.json" isGithub lineStart={6} lineEnd={10}/>
-
-A complete docs for cup configuration is available in the [cup documentation](https://cup.sergi0g.dev/docs)
+A complete docs for cup configuration is available in the
+<Link href="https://cup.sergi0g.dev/docs" isExternal>cup documentation</Link>.
 
 ---
 
