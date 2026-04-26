@@ -9,10 +9,10 @@ sidebar:
 ---
 
 import ShowCode from "@components/ShowCode.astro";
-import { FileTree } from "@astrojs/starlight/components";
+import {FileTree} from "@astrojs/starlight/components";
 
-1. Create a folder in which to place the traefik data.
-   In the traefik folder, create file to have the following structure:
+1. Create a folder to store the traefik data.
+   In the traefik folder, create files using the following structure:
 
 <FileTree>
 
@@ -25,9 +25,13 @@ import { FileTree } from "@astrojs/starlight/components";
 
 </FileTree>
 
-You can create a first file named `compose.yml` and put the following content in it
+In `compose.yml` put the following content in it
 
-<ShowCode url="traefik/compose.yaml" language="yml" title="compose.yml" isGithub />
+<ShowCode url="traefik/compose.yaml" language="yml" title="compose.yml"  isGithub />
+
+The `traefik.yml` file should contain the following content:
+
+<ShowCode url="traefik/traefik.yml" language="yml" title="traefik.yml" collapse="1-11,16-23,37-105,147-158" isGithub />
 
 Once the configuration is complete, you can run the following command
 
