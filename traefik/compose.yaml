@@ -1,6 +1,6 @@
 services:
     traefik:
-        image: traefik:v3.3.6
+        image: traefik:v3.6.14
         container_name: traefik
         restart: always
         volumes:
@@ -19,7 +19,7 @@ services:
             traefik.http.routers.proxy.tls: true
             traefik.http.routers.proxy.tls.certresolver: production
             traefik.http.routers.proxy.rule: Host(`proxy.example.com`)
-            traefik.http.services.proxy.loadbalancer.server.port: 8080
+            traefik.http.routers.proxy.service: api@internal
             traefik.http.routers.proxy.middlewares: proxy-auth@file, me@file
             
       
