@@ -6,42 +6,89 @@ banner:
         ⚠️ This documentation is under development. Expect changes!
 ---
 
-import WarnBanner from "@components/WarnBanner.astro";
+
+
+
+
+
+
+
+
+
+
+import ReverseProxyNote from "@components/ReverseProxyNote.astro";
 import ShowCode from "@components/ShowCode.astro";
 import Link from "@components/Link.astro";
+import Caution from "@components/asides/Caution.astro";
+import Note from "@components/asides/Note.astro";
+import DomainConfigurationNote from "@components/asides/DomainConfigurationNote.astro";
 import {FileTree} from "@astrojs/starlight/components";
 
-<WarnBanner />
+<ReverseProxyNote />
 
-## Installation
 
-1. Create a folder in which to place the cup data.
-   In the cup folder, create file and folder to have the following structure:
+Cup is a monitoring solution for tracking container updates. This guide will help you set up Cup in your homelab.
 
-<FileTree>
+## Setup Directory Structure
 
-- cup
-    - compose.yaml
-    - cup.json
+Create a folder to store all Cup configuration files:
 
-</FileTree>
+```bash
+mkdir cup
+cd cup
+```
 
-2. First your compose.yaml, add the following content
+## Configuration Files
+
+### 1. Docker Compose Configuration
+
+Create a `compose.yaml` file with the following content:
 
 <ShowCode url="cup/compose.yaml" language="yml" title="compose.yaml" isGithub />
 
-3. In your cup.json, add the following content
+<DomainConfigurationNote
+    file="compose.yaml"
+    domain="cup.example.com"
+    codeUrl="cup/compose.yaml"
+    line={15}
+/>
+
+### 2. Cup Configuration
+
+Create a `cup.json` file with the following content:
+
 <ShowCode url="cup/cup.json" language="json" title="cup.json" isGithub />
 
-A complete docs for cup configuration is available in the
-<Link href="https://cup.sergi0g.dev/docs" isExternal>cup documentation</Link>.
+<Note title="Configuration Help">
+    For detailed configuration options and advanced settings, refer to the <Link href="https://cup.sergi0g.dev/docs" isExternal>official Cup documentation</Link>.
+</Note>
 
----
+## Deployment
 
-## Usage
-To start cup, run the following command in the cup folder:
+Your final folder structure should look like this:
+
+<FileTree>
+    - cup/
+    - compose.yaml
+    - cup.json
+</FileTree>
+
+Once all configuration files are in place, start Cup with the following command:
 
 ```bash
 docker compose up -d
 ```
-After a few seconds, you should be able to access the cup dashboard at `https://cup.example.com`.
+
+<Caution title="First Startup">
+    The application may take a few seconds to initialize. Wait before accessing the dashboard.
+</Caution>
+
+## Accessing the Dashboard
+
+After a few seconds, you should be able to access the Cup dashboard at:
+
+```
+https://cup.example.com
+```
+
+Make sure to replace `cup.example.com` with your actual domain configured in `compose.yaml`.

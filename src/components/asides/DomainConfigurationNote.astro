@@ -1,0 +1,63 @@
+﻿---
+import Note from "@components/asides/Note.astro";
+import ShowCode from "@components/ShowCode.astro";
+
+interface Props {
+    file?: string;
+    domain: string;
+    codeUrl: string;
+    line?: number;
+    collapse?: string;
+}
+
+const {
+    file = "compose.yaml",
+    domain,
+    codeUrl,
+    line,
+    collapse,
+} = Astro.props;
+
+const contextBefore = 3;
+const contextAfter = 3;
+
+const finalLineStart = line != null ? Math.max(1, line - contextBefore) : undefined;
+const finalLineEnd = line != null ? line + contextAfter : undefined;
+
+function buildCollapse(
+    targetLine: number | undefined,
+    startLine: number | undefined,
+    endLine: number | undefined,
+    existingCollapse: string | undefined,
+): string | undefined {
+    if (existingCollapse) return existingCollapse;
+    if (targetLine == null || startLine == null || endLine == null) return undefined;
+
+    const hasPrefix = startLine > 1 ? 1 : 0;
+    const hasSuffix = 1;
+    const totalLines = endLine - startLine + 1 + hasPrefix + hasSuffix;
+    const visibleIndex = (targetLine - startLine + 1) + hasPrefix;
+
+    const ranges: string[] = [];
+    if (visibleIndex > 1) ranges.push(`1-${visibleIndex - 1}`);
+    if (visibleIndex < totalLines) ranges.push(`${visibleIndex + 1}-${totalLines}`);
+    return ranges.length > 0 ? ranges.join(",") : undefined;
+}
+
+const finalCollapse = buildCollapse(line, finalLineStart, finalLineEnd, collapse);
+---
+
+<Note title="Domain Configuration">
+    In <code>{file}</code> , replace <code>{domain}</code> with your own domain.
+</Note>
+
+<ShowCode
+    url={codeUrl}
+    language="yml"
+    title={file}
+    mark={domain}
+    lineStart={finalLineStart}
+    lineEnd={finalLineEnd}
+    collapse={finalCollapse}
+    isGithub
+/>

@@ -8,9 +8,11 @@ sidebar:
     order: 1
 ---
 
+
 import ShowCode from "@components/ShowCode.astro";
 import Link from "@components/Link.astro";
 import Caution from "@components/asides/Caution.astro";
+import DomainConfigurationNote from "@components/asides/DomainConfigurationNote.astro";
 import {FileTree} from "@astrojs/starlight/components";
 
 ## Setup Directory Structure
@@ -31,9 +33,12 @@ Create a `compose.yml` file with the following content:
 
 <ShowCode url="traefik/compose.yaml" language="yml" title="compose.yml"  isGithub />
 
-**Important**: Update the Traefik dashboard domain. Change `proxy.example.com` to your desired domain:
-
-<ShowCode url="traefik/compose.yaml" language="yml" title="compose.yml" lineStart={17} lineEnd={23} collapse="1-5,7-9" mark="proxy.example.com" isGithub />
+<DomainConfigurationNote
+    file="compose.yml"
+    domain="proxy.example.com"
+    codeUrl="traefik/compose.yaml"
+    line={21}
+/>
 
 ### 2. Main Traefik Configuration
 
@@ -142,4 +147,3 @@ docker compose up -d
 Access your Traefik dashboard at: `https://proxy.your-domain.com/dashboard/` (or your configured domain)
 
 Use your Basic Auth credentials to log in.
-
