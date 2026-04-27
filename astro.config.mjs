@@ -6,6 +6,7 @@ import catppuccin from "@catppuccin/starlight";
 import starlightAutoSidebar from "starlight-auto-sidebar";
 import starlightCodeblockFullscreen from "starlight-codeblock-fullscreen";
 import {fileURLToPath} from 'node:url';
+import starlightAnnouncement from "starlight-announcement";
 
 export default defineConfig({
     site: "https://docs.home.gamingdy.fr",
@@ -33,7 +34,18 @@ export default defineConfig({
                 catppuccin({
                     dark: {flavor: "mocha", accent: "mauve"},
                     light: {flavor: "latte", accent: "mauve"}
-                })],
+                }),
+                starlightAnnouncement({
+                    announcements: [
+                        {
+                            id: 'under-dev',
+                            content: 'This documentation is under development. Expect changes!',
+                            variant: 'caution',
+                            dismissible: false,
+                        },
+                    ],
+                }),
+            ],
             expressiveCode: {
                 // Replace the default themes with a custom set of bundled themes:
                 // "dracula" (a dark theme) and "solarized-light"

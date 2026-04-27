@@ -10,17 +10,18 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.6",
-    "@astrojs/starlight": "^0.37.0",
-    "@catppuccin/starlight": "^1.0.2",
-    "@expressive-code/plugin-collapsible-sections": "^0.41.7",
-    "@expressive-code/plugin-line-numbers": "^0.41.3",
-    "astro": "^5.16.3",
-    "sharp": "^0.34.5",
-    "starlight-auto-sidebar": "^0.1.3",
-    "starlight-codeblock-fullscreen": "^0.1.4",
-    "starlight-image-zoom": "^0.13.2",
-    "starlight-links-validator": "^0.19.2",
+    "@astrojs/check": "0.9.8",
+    "@astrojs/starlight": "^0.38.4",
+    "@catppuccin/starlight": "^2.0.1",
+    "@expressive-code/plugin-collapsible-sections": "0.41.7",
+    "@expressive-code/plugin-line-numbers": "0.41.7",
+    "astro": "^6.1.9",
+    "sharp": "0.34.5",
+    "starlight-announcement": "^1.1.0",
+    "starlight-auto-sidebar": "^0.3.0",
+    "starlight-codeblock-fullscreen": "^1.0.0",
+    "starlight-image-zoom": "^0.14.1",
+    "starlight-links-validator": "^0.24.0",
     "typescript": "^5.9.3"
   }
 }
