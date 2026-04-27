@@ -24,14 +24,12 @@ try {
         data = await response.text();
 
         if (lineStart !== undefined || lineEnd !== undefined) {
-            const startLine = Number(lineStart ?? lineEnd);
-            const endLine = Number(lineEnd ?? lineStart);
+            const startLine = lineStart == null ? 1:Number(lineStart);
+            const endLine = lineEnd == null ? undefined: Number(lineEnd);
 
-            if (Number.isInteger(startLine) && Number.isInteger(endLine) && startLine > 0 && endLine >= startLine) {
-                data = "...\n"+ data.split(/\r?\n/).slice(startLine - 1, endLine).join("\n") +"\n...";
-            } else {
-                data = "";
-            }
+            const prefix = startLine > 1 ? "...\n" : "";
+            const suffix = endLine == null ? "" : "\n...";
+            data = prefix + data.split(/\r?\n/).slice(startLine - 1,endLine).join("\n") +suffix;
         }
     }
 } catch (error) {

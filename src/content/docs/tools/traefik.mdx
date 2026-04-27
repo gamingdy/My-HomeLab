@@ -3,38 +3,143 @@ title: Traefik
 template: doc
 banner:
     content: |
-        ⚠️ This documentation, is under development. Expect changes!
+        ⚠️ This documentation is under development. Expect changes!
 sidebar:
     order: 1
 ---
 
 import ShowCode from "@components/ShowCode.astro";
+import Link from "@components/Link.astro";
+import Caution from "@components/asides/Caution.astro";
 import {FileTree} from "@astrojs/starlight/components";
 
-1. Create a folder to store the traefik data.
-   In the traefik folder, create files using the following structure:
+## Setup Directory Structure
+
+Start by creating a folder to store all Traefik configuration files:
+
+```bash
+mkdir traefik
+cd traefik
+mkdir dynamic
+```
+
+## Configuration Files
+
+### 1. Docker Compose Configuration
+
+Create a `compose.yml` file with the following content:
+
+<ShowCode url="traefik/compose.yaml" language="yml" title="compose.yml"  isGithub />
+
+**Important**: Update the Traefik dashboard domain. Change `proxy.example.com` to your desired domain:
+
+<ShowCode url="traefik/compose.yaml" language="yml" title="compose.yml" lineStart={17} lineEnd={23} collapse="1-5,7-9" mark="proxy.example.com" isGithub />
+
+### 2. Main Traefik Configuration
+
+Create a `traefik.yml` file with the following content:
+
+<ShowCode url="traefik/traefik.yml" language="yml" title="traefik.yml" isGithub />
+
+**Update the Umami Plugin Version**: Check the
+<Link href="https://github.com/astappiev/traefik-umami-feeder/releases" isExternal>latest plugin version</Link> and update accordingly:
+
+<ShowCode url="traefik/traefik.yml" language="yml" title="traefik.yml" lineStart={48} lineEnd={52} mark="v1.4.1" isGithub />
+
+**Update Your Email**: Change the email address for ACME certificate generation to your email:
+
+<ShowCode url="traefik/traefik.yml" language="yml" title="traefik.yml" lineStart={84} mark="your-email@example.com"  isGithub />
+
+### 3. Dynamic Configuration with Middlewares
+
+Create the file `dynamic/conf.yml` with the following content:
+
+<ShowCode url="traefik/dynamic/conf.yml" language="yml" title="conf.yml" isGithub />
+
+## Understanding Middlewares
+
+The `conf.yml` file defines several security middlewares that protect and monitor your Traefik instance:
+
+### my-umami Middleware
+Integrates the Umami analytics plugin for traffic tracking:
+<ShowCode url="traefik/dynamic/conf.yml" language="yml" title="conf.yml" lineStart={2} lineEnd={10} isGithub />
+
+**What it does**: Sends detailed metrics about every request passing through Traefik to your Umami analytics instance. Useful for monitoring traffic patterns and usage statistics.
+
+### proxy-auth Middleware
+Protects your Traefik dashboard with HTTP Basic Authentication:
+<ShowCode url="traefik/dynamic/conf.yml" language="yml" title="conf.yml" lineStart={12} lineEnd={14} isGithub />
+
+
+<Caution title="Password Hashing">
+    The password **must be hashed** using one of these methods:
+</Caution>
+
+- **MD5** (deprecated, not recommended):
+  ```bash
+  openssl passwd -apr1 password
+  ```
+
+- **SHA1** (good):
+  ```bash
+  openssl passwd -1 password
+  ```
+
+- **Bcrypt** (most secure, recommended):
+  ```bash
+  htpasswd -nbB admin mypassword
+  # Output: admin:$2y$05$abcdef...
+  ```
+
+Copy the hashed output and replace `user:password` in your configuration.
+
+### me Middleware
+Restricts access by IP address to enhance security:
+<ShowCode url="traefik/dynamic/conf.yml" language="yml" title="conf.yml" lineStart={16} lineEnd={18} isGithub />
+
+**What it does**: Only allows traffic from specified IP addresses. Perfect for restricting dashboard access to your local network or specific public IPs.
+
+## SSL Certificate Setup
+
+The `acme.json` file stores your SSL certificates. Create it with the following command:
+
+```bash
+touch acme.json
+echo "{}" > acme.json
+chmod 600 acme.json
+```
+
+
+<Caution title="Secure the file permissions">
+     Important for certificate storage:
+    ```bash
+    chmod 600 acme.json
+    ```
+</Caution>
+
+
+## Verify Your Setup
+
+Your final folder structure should look like this:
 
 <FileTree>
-
-- traefik
-    - dynamic
+- traefik/
+    - dynamic/
         - conf.yml
     - acme.json
     - compose.yaml
     - traefik.yml
-
 </FileTree>
 
-In `compose.yml` put the following content in it
+## Start Traefik
 
-<ShowCode url="traefik/compose.yaml" language="yml" title="compose.yml"  isGithub />
-
-The `traefik.yml` file should contain the following content:
-
-<ShowCode url="traefik/traefik.yml" language="yml" title="traefik.yml" collapse="1-11,16-23,37-105,147-158" isGithub />
-
-Once the configuration is complete, you can run the following command
+Once all configuration files are in place and you've updated the necessary values, start Traefik:
 
 ```bash
 docker compose up -d
 ```
+
+Access your Traefik dashboard at: `https://proxy.your-domain.com/dashboard/` (or your configured domain)
+
+Use your Basic Auth credentials to log in.
+
